@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load staticfiles  %}
+
+{% block title %}Maritim Cuaca Pelabuhan{% endblock title %}
+{% block content %}
+<table id="maritim-cuaca-pelabuhan" class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<th rowspan="2">#</th>
+			<th rowspan="2">Batch Time</th>
+			<th rowspan="2">Kota</th>
+			<th rowspan="2">Pelabuhan</th>
+			<th rowspan="2">Cuaca</th>
+			<th colspan="3">Kecepatan Angin</th>
+			<th colspan="2">Gelombang</th>
+			<th rowspan="2">Visibility</th>
+			<th colspan="2">Suhu Udara</th>
+			<th colspan="2">Kelembaban</th>
+			<th colspan="2">Pasang Max</th>
+			<th colspan="2">Pasang Min</th>
+		</tr>
+		<tr>
+			<th>Arah</th>
+			<th>Max</th>
+			<th>Min</th>
+			<th>Max</th>
+			<th>Min</th>
+			<th>Max</th>
+			<th>Min</th>
+			<th>Max</th>
+			<th>Min</th>
+			<th>Tinggi Air</th>
+			<th>Waktu</th>
+			<th>Tinggi Air</th>
+			<th>Waktu</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for record in maritim_cuaca_pelabuhan %}
+		<tr>
+			<td>{{ forloop.counter }}</td>
+			<td>{{ record.batch_time }}</td>
+			<td>{{ record.shortname }}</td>
+			<td>{{ record.port_name }}</td>
+			<td>{% if record.weather_icon %}{{ record.weather_icon }}{% else %}&#45;{% endif %}</td>
+			<td>{% if record.wd_from_icon_id or wd_to_icon_id %}{{ record.wd_from_icon_id }}&#45;{{ record.wd_to_icon_id }}{% else %}&#45;{% endif %}</td>
+			<td>{% if record.ws_min %}{{ record.ws_min }} Knot{% else %}&#45;{% endif %}</td>
+			<td>{% if record.ws_max %}{{ record.ws_max }} Knot{% else %}&#45;{% endif %}</td>
+			<td>{% if record.wave_min %}{{ record.wave_min }} Meter{% else %}&#45;{% endif %}</td>
+			<td>{% if record.wave_max %}{{ record.wave_max }} Meter{% else %}&#45;{% endif %}</td>
+			<td>{% if record.visibility %}{{ record.visibility }} Meter{% else %}&#45;{% endif %}</td>
+			<td>{% if record.tmin %}{{ record.tmin }} &deg;{% else %}&#45;{% endif %}</td>
+			<td>{% if record.tmax %}{{ record.tmax }} &deg;{% else %}&#45;{% endif %}</td>
+			<td>{% if record.humin %}{{ record.humin }} &#37;{% else %}&#45;{% endif %}</td>
+			<td>{% if record.humax %}{{ record.humax }} &#37;{% else %}&#45;{% endif %}</td>
+			<td>{% if record.pasang_max %}{{ record.pasang_max }} Meter{% else %}&#45;{% endif %}</td>
+			<td>{% if record.pasang_max_datemin or record.pasang_max_datemax %}{{ record.pasang_max_datemin }} &#45; {{ record.pasang_max_datemin }} {{ record.pasang_max_zona }}{% else %}&#45;{% endif %}</td>
+			<td>{% if record.pasang_min %}{{ record.pasang_min }} Meter{% else %}&#45;{% endif %}</td>
+			<td>{% if record.pasang_min_datemin or record.pasang_min_datemax %}{{ record.pasang_min_datemin }} &#45; {{ record.pasang_min_datemin }} {{ record.pasang_min_zona }}{% else %}&#45;{% endif %}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+    $('#maritim-cuaca-pelabuhan').DataTable({
+		"iDisplayLength": 100,
+	});
+} );
+</script>
+{% endblock extra_js %}

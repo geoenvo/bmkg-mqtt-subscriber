@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<head>
+    <title>{% block title %}{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta charset="UTF-8">
+	<meta http-equiv="refresh" content="{{ REFRESH_TIME }}">
+
+	{% load staticfiles %}
+	<!-- Javascript -->
+	<script type="text/javascript" src="{% static 'jquery/dist/jquery.js' %}"> </script>
+	<script type="text/javascript" src="{% static 'jquery/dist/jquery.min.js' %}"> </script>
+	<script type="text/javascript" src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'datatables/media/js/jquery.dataTables.min.js' %}"></script>
+
+	<!-- CSS -->
+	<link media="all" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}" type="text/css" rel="stylesheet" />
+	<link media="all" href="{% static 'bootstrap/dist/css/bootstrap-theme.min.css' %}" type="text/css" rel="stylesheet" />
+	<link media="all" href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" />
+	<link media="all" href="{% static 'datatables/media/css/jquery.dataTables.min.css' %}" type="text/css" rel="stylesheet" />
+	<link media="all" href="{% static 'font-awesome/css/font-awesome.min.css' %}" type="text/css" rel="stylesheet" />
+	<link media="all" href="{% static 'weather-icons/css/weather-icons.min.css' %}" type="text/css" rel="stylesheet" />
+	<link media="all" href="{% static 'weather-icons/css/weather-icons-wind.css' %}" type="text/css" rel="stylesheet" />
+
+</head>
+
+<body>
+	<div id="navbar">
+		{% block sidebar %}
+		<nav class="navbar navbar-dark bg-primary navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+				  <a class="navbar-brand" href="{% url 'home' %}">{{ SITE_NAME }}</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"> Cuaca <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li class="dropdown-header">Prakiraan Cuaca</li>
+								<li>
+									<span>
+										<a class="dropdown-item" href="{% url 'digital_forecast' %}?latest=1">Prakiraan Cuaca Kota/Kabupaten</a>
+										<a class="dropdown-item all" href="{% url 'digital_forecast' %}">(Semua)</a>
+										<a class="dropdown-item all" href="{% url 'digital_forecast_info' %}">(Info 1)</a>
+										<a class="dropdown-item all" href="{% url 'digital_forecast_info2' %}">(Info 2)</a>
+									</span>
+								</li>
+								<li role="separator" class="divider"></li>
+								<li class="dropdown-header">Cuaca Maritim</li>
+								<li>
+									<span>
+										<a class="dropdown-item" href="{% url 'maritim_cuaca_pelayanan' %}?latest=1">Prakiraan Cuaca Wilayah Pelayanan</a>
+										<a class="dropdown-item all" href="{% url 'maritim_cuaca_pelayanan' %}">(Semua)</a>
+										<a class="dropdown-item all" href="{% url 'maritim_cuaca_pelayanan_info' %}">(Info)</a>
+									</span>
+								</li>
+								<li>
+									<span>
+										<a class="dropdown-item" href="{% url 'maritim_cuaca_pelabuhan' %}?latest=1">Prakiraan Cuaca Pelabuhan</a>
+										<a class="dropdown-item all" href="{% url 'maritim_cuaca_pelabuhan' %}">(Semua)</a>
+										<a class="dropdown-item all" href="{% url 'maritim_cuaca_pelabuhan_info' %}">(Info)</a>
+									</span>
+								</li>
+								<li>
+									<span>
+										<a class="dropdown-item" href="{% url 'maritim_cuaca_penyebrangan' %}?latest=1">Prakiraan Cuaca Jalur Penyebrangan</a>
+										<a class="dropdown-item all" href="{% url 'maritim_cuaca_penyebrangan' %}">(Semua)</a>
+										<a class="dropdown-item all" href="{% url 'maritim_cuaca_penyebrangan_info' %}">(Info)</a>
+									</span>
+								</li>
+								<li>
+									<span>
+										<a class="dropdown-item" href="{% url 'maritim_wisata_bahari' %}?latest=1">Prakiraan Cuaca Wisata Bahari</a>
+										<a class="dropdown-item all" href="{% url 'maritim_wisata_bahari' %}">(Semua)</a>
+										<a class="dropdown-item all" href="{% url 'maritim_wisata_bahari_info' %}">(Info)</a>
+									</span>
+								</li>
+								<li role="separator" class="divider"></li>
+								<li class="dropdown-header">Pengindraan Jauh Citra Stelit</li>
+								<li>
+									<span>
+										<a class="dropdown-item" href="{% url 'satelit_himawari_8_ir_enhanced' %}?latest=1">Himawari-8 IR Enhanced</a>
+										<a class="dropdown-item all" href="{% url 'satelit_himawari_8_ir_enhanced' %}">(Semua)</a>
+									</span>
+								</li>
+								<li>
+									<span>
+										<a class="dropdown-item" href="{% url 'satelit_himawari_8_natural_color' %}?latest=1">Himawari-8 Natural Color</a>
+										<a class="dropdown-item all" href="{% url 'satelit_himawari_8_natural_color' %}">(Semua)</a>
+									</span>
+								</li>
+								<li>
+									<span>
+										<a class="dropdown-item" href="{% url 'satelit_hotspot_modis' %}?latest=1">Hotspot MODIS</a>
+										<a class="dropdown-item all" href="{% url 'satelit_hotspot_modis' %}">(Semua)</a>
+									</span>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"> Gempa Bumi <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li>
+									<span>
+										<a class="dropdown-item" href="{% url 'gempa_terkini' %}?latest=1">Gempa Bumi Terkini (M &ge; 50)</a>
+										<a class="dropdown-item all" href="{% url 'gempa_terkini' %}">(Semua)</a>
+									</span>
+								</li>
+								<li>
+									<span>
+										<a class="dropdown-item" href="{% url 'gempa_dirasakan' %}?latest=1">Gempa Bumi Dirasakan</a>
+										<a class="dropdown-item all" href="{% url 'gempa_dirasakan' %}">(Semua)</a>
+									</span>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"> Iklim <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li>
+									<span>
+										<a class="dropdown-item" href="{% url 'iklim_kabupaten_csv' %}?latest=1">Iklim Kabupaten</a>
+										<a class="dropdown-item all" href="{% url 'iklim_kabupaten_csv' %}">(Semua)</a>
+										<a class="dropdown-item all" href="{% url 'iklim_kabupaten_csv_info' %}">(Info)</a>
+									</span>
+								</li>
+								<li>
+									<span>
+										<a class="dropdown-item" href="{% url 'iklim_kecamatan_csv' %}?latest=1">Iklim Kecamatan</a>
+										<a class="dropdown-item all" href="{% url 'iklim_kecamatan_csv' %}">(Semua)</a>
+										<a class="dropdown-item all" href="{% url 'iklim_kecamatan_csv_info' %}">(Info)</a>
+									</span>
+								</li>
+								<li>
+									<span>
+										<a class="dropdown-item" href="{% url 'iklim_desa_csv' %}?latest=1">Iklim Desa</a>
+										<a class="dropdown-item all" href="{% url 'iklim_desa_csv' %}">(Semua)</a>
+										<a class="dropdown-item all" href="{% url 'iklim_desa_csv_info' %}">(Info)</a>
+									</span>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		{% endblock %}
+	</div>
+    <div id="content" class="container-fluid">
+		{% block content %}{% endblock %}
+    </div>
+	{% block extra_js %}{% endblock extra_js %}
+</body>
+</html>

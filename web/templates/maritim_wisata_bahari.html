@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load staticfiles  %}
+
+{% block title %}Maritim Wisata Bahari{% endblock title %}
+{% block content %}
+<table id="maritim-wisata-bahari" class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<th rowspan="2">#</th>
+			<th rowspan="2">Batch Time</th>
+			<th rowspan="2">Kota</th>
+			<th rowspan="2">Nama Pantai</th>
+			<th colspan="2">Waktu</th>
+			<th rowspan="2">Cuaca</th>
+			<th colspan="2">Arah Angin</th>
+			<th rowspan="2">Kecepatan Angin</th>
+			<th colspan="2">Arah Gelombang</th>
+			<th rowspan="2">Tinggi Gelombang</th>
+		</tr>
+		<tr>
+			<th>Tanggal</th>
+			<th>Pukul</th>
+			<th>Sudut</th>
+			<th>Arah</th>
+			<th>Sudut</th>
+			<th>Arah</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for record in maritim_wisata_bahari %}
+		<tr>
+			<td>{{ forloop.counter }}</td>
+			<td>{{ record.batch_time }}</td>
+			<td>{{ record.shortname }}</td>
+			<td>{{ record.beach_name }}</td>
+			<td>{{ record.datetime_date }}</td>
+			<td>{{ record.datetime_hour }}</td>
+			<td>{% if record.weather %}{{ record.weather }}{% else %}&#45;{% endif %}</td>
+			<td>{% if record.wd_deg %}{{ record.wd_deg }} &deg;{% else %}&#45;{% endif %}</td>
+			<td>{% if record.wd_card %}{{ record.wd_card }}{% else %}&#45;{% endif %}</td>
+			<td>{% if record.ws_kt %}{{ record.ws_kt }} Knot{% else %}&#45;{% endif %}</td>
+			<td>{% if record.wave_deg %}{{ record.wave_deg }} &deg;{% else %}&#45;{% endif %}</td>
+			<td>{% if record.wave_direction %}{{ record.wave_direction }}{% else %}&#45;{% endif %}</td>
+			<td>{% if record.wave_height_meter %}{{ record.wave_height_meter }} Meter{% else %}&#45;{% endif %}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+    $('#maritim-wisata-bahari').DataTable({
+		"iDisplayLength": 100,
+	});
+} );
+</script>
+{% endblock extra_js %}

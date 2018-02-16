@@ -1,0 +1,12 @@
+*.pyc
+*.log
+*.pid
+*.DS_Store
+*.db
+.idea
+.vagrant
+.sqlite3
+settings.py
+supervisord.conf
+web/static/*
+web/components/*

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load staticfiles  %}
+
+{% block title %}Digital Forecast Info{% endblock title %}
+{% block content %}
+<div id="digital-forecast-info2">
+	<span id="page_title">Prakiraan Cuaca Kota / Kabupaten (Info 2) <small>Diperbarui : {{ digital_forecast_info2.0.batch_time }}</small></span>
+	<table  id="digital-forecast-info2-h0" class="table" >
+		{% for record in digital_forecast_info2 %}
+		<tbody>
+			<tr><td colspan="4"><h1 id="{{ record.area_id }}" class="pull-left"><a href="#">{{ record.area_name_en }}</a></h1></td></tr>
+			<tr class="info"><td colspan="4"><h2>Cuaca Darat {{ record.timestamp_1 }} ({{ record.time_period|title }})</h2></td></tr>
+			<tr>
+				<td rowspan="2">
+					{% if record.weather_00 and record.time_period == "pagi" %}
+						<img src="{% static 'image/'|add:record.weather_00 %}" class="weather-info2-img" />
+					{% elif record.weather_06 and record.time_period == "siang" %}
+						<img src="{% static 'image/'|add:record.weather_06 %}" class="weather-info2-img" />
+					{% elif record.weather_12 and record.time_period == "malam" %}
+						<img src="{% static 'image/'|add:record.weather_12 %}" class="weather-info2-img" />
+					{% elif record.weather_18 and record.time_period == "dini hari" %}
+						<img src="{% static 'image/'|add:record.weather_18 %}" class="weather-info2-img" />
+					{% else %}
+						&#45;
+					{% endif %}
+				</td>
+				<td>
+					{% if record.weather_00 and record.time_period == "pagi" %}
+						<h2>{{ record.weather_00|slice:":-7"|title }}</h2>
+					{% elif record.weather_06 and record.time_period == "siang" %}
+						<h2>{{ record.weather_06|slice:":-7"|title }}</h2>
+					{% elif record.weather_12 and record.time_period == "malam" %}
+						<h2>{{ record.weather_12|slice:":-7"|title }}</h2>
+					{% elif record.weather_18 and record.time_period == "dini hari" %}
+						<h2>{{ record.weather_18|slice:":-7"|title }}</h2>
+					{% else %}
+						&#45;
+					{% endif %}
+				</td>
+				<td>
+					{% if record.hu_00 and record.time_period == "pagi" %}
+						<h2><i class="fa fa-tint"></i> {{ record.hu_00 }} % ({{ record.humin_1 }} - {{ record.humax_1 }} %)</h2>
+					{% elif record.hu_06 and record.time_period == "siang" %}
+						<h2><i class="fa fa-tint"></i> {{ record.hu_06 }} % ({{ record.humin_1 }} - {{ record.humax_1 }} %)</h2>
+					{% elif record.hu_12 and record.time_period == "malam" %}
+						<h2><i class="fa fa-tint"></i> {{ record.hu_12 }} % ({{ record.humin_1 }} - {{ record.humax_1 }} %)</h2>
+					{% elif record.hu_18 and record.time_period == "dini hari" %}
+						<h2><i class="fa fa-tint"></i> {{ record.hu_18 }} % ({{ record.humin_1 }} - {{ record.humax_1 }} %)</h2>
+					{% else %}
+						&#45;
+					{% endif %}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					{% if record.t_00_c and record.time_period == "pagi" %}
+						<h2><i class="fa fa-thermometer-half"></i> {{ record.t_00_c }} &deg;C ({{ record.tmin_1_c }} - {{ record.tmax_1_c }} &deg;C)</h2>
+					{% elif record.t_06_c and record.time_period == "siang" %}
+						<h2><i class="fa fa-thermometer-half"></i> {{ record.t_06_c }} &deg;C ({{ record.tmin_1_c }} - {{ record.tmax_1_c }} &deg;C)</h2>
+					{% elif record.t_12_c and record.time_period == "malam" %}
+						<h2><i class="fa fa-thermometer-half"></i> {{ record.t_12_c }} &deg;C ({{ record.tmin_1_c }} - {{ record.tmax_1_c }} &deg;C)</h2>
+					{% elif record.t_18_c and record.time_period == "dini hari" %}
+						<h2><i class="fa fa-thermometer-half"></i> {{ record.t_18_c }} &deg;C ({{ record.tmin_1_c }} - {{ record.tmax_1_c }} &deg;C)</h2>
+					{% else %}
+						&#45;
+					{% endif %}
+				</td>
+				<td>
+					{% if record.wd_00_name and record.ws_00_kph and record.time_period == "pagi" %}
+						<h2><i class="fa fa-tachometer"></i> {{ record.ws_00_kph }} KM/H</h2>
+						<h2><i class="wi wi-wind wi-from-{{ record.wd_00_card|lower }}"></i> {{ record.wd_00_name }}</h2>
+					{% elif record.wd_06_name and record.ws_06_kph and record.time_period == "siang" %}
+						<h2><i class="fa fa-tachometer"></i> {{ record.ws_06_kph }} KM/H</h2>
+						<h2><i class="wi wi-wind wi-from-{{ record.wd_06_card|lower }}"></i> {{ record.wd_06_name }}</h2>
+					{% elif record.wd_12_name and record.ws_12_kph and record.time_period == "malam" %}
+						<h2><i class="fa fa-tachometer"></i> {{ record.ws_12_kph }} KM/H</h2>
+						<h2><i class="wi wi-wind wi-from-{{ record.wd_12_card|lower }}"></i> {{ record.wd_12_name }}</h2>
+					{% elif record.wd_18_name and record.ws_18_kph and record.time_period == "dini hari" %}
+						<h2><i class="fa fa-tachometer"></i> {{ record.ws_18_kph }} KM/H</h2>
+						<h2><i class="wi wi-wind wi-from-{{ record.wd_18_card|lower }}"></i> {{ record.wd_18_name }}</h2>
+					{% else %}
+						&#45;
+					{% endif %}
+				</td>
+			</tr>
+		</tbody>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+{% endblock extra_js %}

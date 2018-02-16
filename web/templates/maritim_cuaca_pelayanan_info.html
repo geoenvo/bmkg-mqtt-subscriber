@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+{% load staticfiles  %}
+
+{% block title %}Maritim Cuaca Pelayanan Info{% endblock title %}
+{% block content %}
+<div id="maritim-wilayah-pelayanan-info">
+	<span id="page_title">Prakiraan Cuaca Wilayah Pelayanan <small>Diperbarui : {{ batch_time }}</small></span>
+	{% for record in maritim_cuaca_pelayanan_info %}
+	<div id="record-pelayanan-{{ forloop.counter }}" class="carousel slide">
+		<div class="carousel-inner">
+		{% for key, value in record.items %}
+		<div id="{{ key }}" class="item {% if forloop.counter == 1 %}active{% endif %}">
+			<table class="table" >
+				<tbody>
+					<tr><td colspan="4"><h1 id="{{ value.hari_ini.station_id }}" class="pull-left"><a href="#">{{ value.hari_ini.shortname }}</a></h1></td></tr>
+					<tr class="info">
+						<td colspan="4">
+							<span class="pull-left">
+								<h2>Cuaca Perairan {{ value.hari_ini.area_name }}</h2>
+								<h2 class="pull-left">{{ value.hari_ini.timestamp_1 }}</h2>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td rowspan="2">
+							{% if value.hari_ini.weather_icon %}
+								<img src="{% static 'image/'|add:value.hari_ini.weather_icon %}" class="weather-pelayanan-info-img" />
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+						<td>
+							{% if value.hari_ini.weather_icon_id %}
+								<h2>{{ value.hari_ini.weather_icon_id }}</h2>
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+						<td>
+							{% if value.hari_ini.wd_from_icon_id and value.hari_ini.wd_to_icon_id %}
+								<h2><i class="wi wi-strong-wind"></i> {{ value.hari_ini.wd_from_icon_id }} - {{ value.hari_ini.wd_to_icon_id }}</h2>
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<td>
+							{% if value.hari_ini.ws_min and value.hari_ini.ws_max %}
+								<h2><i class="fa fa-tachometer"></i> {{ value.hari_ini.ws_min }} - {{ value.hari_ini.ws_max }} KNOTS</h2>
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+						<td>
+							{% if value.hari_ini.wave_min and value.hari_ini.wave_max %}
+								<h2>{{ value.hari_ini.wave_min }} - {{ value.hari_ini.wave_max }} Meter <strong>({{ value.hari_ini.status_warning|upper }})</strong></h2>
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							{% if value.hari_ini.peringatan_dini %}
+								<h2>{{ value.hari_ini.peringatan_dini }}</h2>
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<table class="table table-striped">
+							<tbody>
+								<tr>
+									<td>
+										{% if value.besok.timestamp_2 %}
+											<h2>{{ value.besok.timestamp_2 }}</h2>
+										{% else %}
+											&#45;
+										{% endif %}
+									</td>
+									<td>
+										{% if value.besok.weather_icon_id %}
+											<h2>{{ value.besok.weather_icon_id }}</h2>
+										{% else %}
+											&#45;
+										{% endif %}
+									</td>
+									<td>
+										{% if value.besok.wd_from_icon_id and value.besok.wd_to_icon_id %}
+											<h2>{{ value.besok.wd_from_icon_id }} - {{ value.besok.wd_to_icon_id }}</h2>
+										{% else %}
+											&#45;
+										{% endif %}
+									</td>
+									<td>
+										{% if value.besok.ws_min and value.besok.ws_max %}
+											<h2>{{ value.besok.ws_min }} - {{ value.besok.ws_max }} KNOTS</h2>
+										{% else %}
+											&#45;
+										{% endif %}
+									</td>
+									<td>
+										{% if value.besok.ws_min and value.besok.ws_max %}
+											<h2>{{ value.besok.wave_min }} - {{ value.besok.wave_max }} Meter</h2>
+										{% else %}
+											&#45;
+										{% endif %}
+									</td>
+								</tr>
+								<tr>
+									<td>
+										{% if value.day2.timestamp_3 %}
+											<h2>{{ value.day2.timestamp_3 }}</h2>
+										{% else %}
+											&#45;
+										{% endif %}
+									</td>
+									<td>
+										{% if value.day2.weather_icon_id %}
+											<h2>{{ value.day2.weather_icon_id }}</h2>
+										{% else %}
+											&#45;
+										{% endif %}
+									</td>
+									<td>
+										{% if value.day2.wd_from_icon_id and value.day2.wd_to_icon_id %}
+											<h2>{{ value.day2.wd_from_icon_id }} - {{ value.day2.wd_to_icon_id }}</h2>
+										{% else %}
+											&#45;
+										{% endif %}
+									</td>
+									<td>
+										{% if value.day2.ws_min and value.day2.ws_max %}
+											<h2>{{ value.day2.ws_min }} - {{ value.day2.ws_max }} KNOTS</h2>
+										{% else %}
+											&#45;
+										{% endif %}
+									</td>
+									<td>
+										{% if value.day2.ws_min and value.day2.ws_max %}
+											<h2>{{ value.day2.wave_min }} - {{ value.day2.wave_max }} Meter</h2>
+										{% else %}
+											&#45;
+										{% endif %}
+									</td>
+								</tr>
+								<tr>
+									<td>
+										{% if value.day3.timestamp_4 %}
+											<h2>{{ value.day3.timestamp_4 }}</h2>
+										{% else %}
+											&#45;
+										{% endif %}
+									</td>
+									<td>
+										{% if value.day3.weather_icon_id %}
+											<h2>{{ value.day3.weather_icon_id }}</h2>
+										{% else %}
+											&#45;
+										{% endif %}
+									</td>
+									<td>
+										{% if value.day3.wd_from_icon_id and value.day3.wd_to_icon_id %}
+											<h2>{{ value.day3.wd_from_icon_id }} - {{ value.day3.wd_to_icon_id }}</h2>
+										{% else %}
+											&#45;
+										{% endif %}
+									</td>
+									<td>
+										{% if value.day3.ws_min and value.day3.ws_max %}
+											<h2>{{ value.day3.ws_min }} - {{ value.day3.ws_max }} KNOTS</h2>
+										{% else %}
+											&#45;
+										{% endif %}
+									</td>
+									<td>
+										{% if value.day3.ws_min and value.day3.ws_max %}
+											<h2>{{ value.day3.wave_min }} - {{ value.day3.wave_max }} Meter</h2>
+										{% else %}
+											&#45;
+										{% endif %}
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		{% endfor %}
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function(){
+    // Activate Carousel
+	{% for record in maritim_cuaca_pelayanan_info %}
+	$("#record-pelayanan-{{ forloop.counter }}").carousel({interval: 10000, pause: "false"});
+	{% endfor %}
+});
+</script>
+{% endblock extra_js %}

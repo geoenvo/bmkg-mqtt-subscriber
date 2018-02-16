@@ -1,0 +1,14 @@
+[
+{
+  "model": "web.generalsetting",
+  "pk": 1,
+  "fields": {
+    "address": "localhost",
+    "keepalive": 60,
+    "title": "BMKG MQTT",
+    "refresh": 300,
+    "user": "bmkg_mqtt",
+    "password": "bmkgmqttpassword"
+  }
+}
+]

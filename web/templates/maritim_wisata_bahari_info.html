@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load staticfiles  %}
+
+{% block title %}Maritim Wisata Bahari Info{% endblock title %}
+{% block content %}
+<div id="maritim-wilayah-wisata-bahari-info">
+	<span id="page_title">Prakiraan Cuaca Wisata Bahari <small>Diperbarui : {{ batch_time }}</small></span>
+	{% for record in maritim_wisata_bahari_info %}
+	<div id="record-wisata-bahari-{{ forloop.counter }}" class="carousel slide">
+		<div class="carousel-inner">
+		{% for key, value in record.items %}
+		<div id="{{ key }}" class="item {% if forloop.counter == 1 %}active{% endif %}">
+			<table class="table" >
+				<tbody>
+					<tr><td colspan="4"><h1 id="{{ value.station_id }}" class="pull-left"><a href="#">{{ value.shortname }}</a></h1></td></tr>
+					<tr class="info">
+						<td colspan="4">
+							<span class="pull-left">
+								<h2>Cuaca Perairan {{ value.area_name_id }}</h2>
+								<h2 class="pull-left">{{ value.timestamp_1 }}</h2>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td rowspan="4">
+							{% if value.weather_icon %}
+								<img src="{% static 'image/'|add:value.weather_icon %}" class="weather-wisata-bahari-info-img" />
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+						<td>
+							{% if value.weather %}
+								<h2>{{ value.weather|title }}</h2>
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<td>
+							{% if value.wd_card and value.wd_card %}
+								<h2><i class="wi wi-strong-wind"></i> <!--{{ value.wd_from_icon_id }} - -->{{ value.wd_card }}</h2>
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<td>
+							{% if value.ws_kt and value.ws_kt %}
+								<h2><i class="fa fa-tachometer"></i> <!-- {{ value.ws_min }} - --> {{ value.ws_kt }} KNOTS</h2>
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<td>
+							{% if value.wave_height and value.wave_height %}
+								<h2><!--{{ value.wave_height }} - --> {{ value.wave_height }} Meter <strong>({{ value.wave_height_description|upper }})</strong></h2>
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		{% endfor %}
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function(){
+    // Activate Carousel
+	{% for record in maritim_wisata_bahari_info %}
+	$("#record-wisata-bahari-{{ forloop.counter }}").carousel({interval: 10000, pause: "false"});
+	{% endfor %}
+});
+</script>
+{% endblock extra_js %}

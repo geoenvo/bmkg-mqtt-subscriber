@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Iklim Kabupaten Info{% endblock title %}
+{% block content %}
+<div id="iklim-kabupaten-info">
+	<span id="page_title">Prakiraan Iklim Kabupaten <small>Diperbarui : {{ iklim_kabupaten_csv_info.0.batch_time }}</small></span>
+	<table  id="iklim-kabupaten-info" class="table" >
+		{% for record in iklim_kabupaten_csv_info %}
+		<thead>
+			<tr>
+				<th colspan="4"><h1 id="{{ record.area_id }}" class="pull-left"><a href="#">{{ record.kabupaten_kota }}</a></h1></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<table id="iklim-kabupaten-info-1" class="table" >
+						<thead>
+							<tr>
+								<th class="info"><h2>Prakiraan Iklim Bulan {{ record.month_year_1.0 }} {{ record.month_year_1.1 }}</h2></th>
+							</tr>
+						<thead>
+						<tbody>
+							{% for item in record.pch_1_value %}
+							<tr>
+								<td><h2>CH {{ item.0 }} MM ({{ item.1.1|upper }}) : {{ item.1.0|floatformat:2 }} %</h2></td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</td>
+				<td>
+					<table id="iklim-kabupaten-info-2" class="table" >
+						<thead>
+							<tr>
+								<th class="info"><h2>Prakiraan Iklim Bulan {{ record.month_year_2.0 }} {{ record.month_year_2.1 }}</h2></th>
+							</tr>
+						<thead>
+						<tbody>
+							{% for item in record.pch_2_value %}
+							<tr>
+								<td><h2>CH {{ item.0 }} MM ({{ item.1.1|upper }}) : {{ item.1.0|floatformat:2 }} %</h2></td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</td>
+				<td>
+					<table id="iklim-kabupaten-info-3" class="table" >
+						<thead>
+							<tr>
+								<th class="info"><h2>Prakiraan Iklim Bulan {{ record.month_year_3.0 }} {{ record.month_year_3.1 }}</h2></th>
+							</tr>
+						<thead>
+						<tbody>
+							{% for item in record.pch_3_value %}
+							<tr>
+								<td><h2>CH {{ item.0 }} MM ({{ item.1.1|upper }}) : {{ item.1.0|floatformat:2 }} %</h2></td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+{% endblock extra_js %}

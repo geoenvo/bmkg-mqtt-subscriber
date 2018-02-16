@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% load staticfiles  %}
+
+{% block title %}Digital Forecast{% endblock title %}
+{% block content %}
+<table  id="digital-forecast" class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<th rowspan="2">#</th>
+			<th rowspan="2">Batch Time</th>
+			<th rowspan="2">Kota/Kabupaten</th>
+			<th rowspan="2">Kode Area</th>
+			<th rowspan="2">Tanggal</th>
+			<th colspan="4">Cuaca</th>
+			<th colspan="2">Suhu (&deg;C)</th>
+			<th colspan="2">Kelembaban (%)</th>
+			<th rowspan="2">Tanggal</th>
+			<th colspan="4">Cuaca</th>
+			<th colspan="2">Suhu (&deg;C)</th>
+			<th colspan="2">Kelembaban (%)</th>
+		</tr>
+		<tr>
+			<th>Pagi</th>
+			<th>Siang</th>
+			<th>Malam</th>
+			<th>Dini Hari</th>
+			<th>Min</th>
+			<th>Max</th>
+			<th>Min</th>
+			<th>Max</th>
+			<th>Pagi</th>
+			<th>Siang</th>
+			<th>Malam</th>
+			<th>Dini Hari</th>
+			<th>Min</th>
+			<th>Max</th>
+			<th>Min</th>
+			<th>Max</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for record in digital_forecast %}
+		<tr>
+			<td>{{ forloop.counter }}</td>
+			<td>{{ record.batch_time }}</td>
+			<td>{{ record.area_name_en }}</td>
+			<td>{{ record.area_id }}</td>
+			<td>{{ record.timestamp_1 }}</td>
+			<td>
+				{% if record.weather_00 %}
+					<img src="{% static 'image/'|add:record.weather_00 %}" class="weather-img" />
+					<span>{{ record.weather_00|slice:":-7" }}</span>
+				{% else %}
+					&#45;
+				{% endif %}
+			</td>
+			<td>
+				{% if record.weather_06 %}
+					<img src="{% static 'image/'|add:record.weather_06 %}" class="weather-img" />
+					<span>{{ record.weather_06|slice:":-7" }}</span>
+				{% else %}
+					&#45;
+				{% endif %}
+			</td>
+			<td>
+				{% if record.weather_12 %}
+					<img src="{% static 'image/'|add:record.weather_12 %}" class="weather-img" />
+					<span>{{ record.weather_12|slice:":-7" }}</span>
+				{% else %}
+					&#45;
+				{% endif %}
+			</td>
+			<td>
+				{% if record.weather_18 %}
+					<img src="{% static 'image/'|add:record.weather_18 %}" class="weather-img" />
+					<span>{{ record.weather_18|slice:":-7" }}</span>
+				{% else %}
+					&#45;
+				{% endif %}
+			</td>
+			<td>{% if record.tmin_1_c %}{{ record.tmin_1_c }}{% else %}&#45;{% endif %}</td>
+			<td>{% if record.tmax_1_c %}{{ record.tmax_1_c }}{% else %}&#45;{% endif %}</td>
+			<td>{% if record.humin_1 %}{{ record.humin_1 }}{% else %}&#45;{% endif %}</td>
+			<td>{% if record.humax_1 %}{{ record.humax_1 }}{% else %}&#45;{% endif %}</td>
+			<td>{{ record.timestamp_2 }}</td>
+			<td>
+				{% if record.weather_24 %}
+					<img src="{% static 'image/'|add:record.weather_24 %}" class="weather-img" />
+					<span>{{ record.weather_24|slice:":-7" }}</span>
+				{% else %}
+					&#45;
+				{% endif %}
+			</td>
+			<td>
+				{% if record.weather_30 %}
+					<img src="{% static 'image/'|add:record.weather_30 %}" class="weather-img" />
+					<span>{{ record.weather_30|slice:":-7" }}</span>
+				{% else %}
+					&#45;
+				{% endif %}
+			</td>
+			<td>
+				{% if record.weather_36 %}
+					<img src="{% static 'image/'|add:record.weather_36 %}" class="weather-img" />
+					<span>{{ record.weather_36|slice:":-7" }}</span>
+				{% else %}
+					&#45;
+				{% endif %}
+			</td>
+			<td>
+				{% if record.weather_42 %}
+					<img src="{% static 'image/'|add:record.weather_42 %}" class="weather-img" />
+					<span>{{ record.weather_42|slice:":-7" }}</span>
+				{% else %}
+					&#45;
+				{% endif %}
+			</td>
+			<td>{% if record.tmin_2_c %}{{ record.tmin_2_c }}{% else %}&#45;{% endif %}</td>
+			<td>{% if record.tmax_2_c %}{{ record.tmax_2_c }}{% else %}&#45;{% endif %}</td>
+			<td>{% if record.humin_1 %}{{ record.humin_1 }}{% else %}&#45;{% endif %}</td>
+			<td>{% if record.humax_1 %}{{ record.humax_1 }}{% else %}&#45;{% endif %}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+    $('#digital-forecast').DataTable({
+		"iDisplayLength": 100,
+	});
+} );
+</script>
+{% endblock extra_js %}

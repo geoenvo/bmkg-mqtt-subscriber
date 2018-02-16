@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load staticfiles  %}
+
+{% block title %}Satelit Hotspot Modis{% endblock title %}
+{% block content %}
+<table id="satelit-hotspot-modis" class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Batch Time</th>
+			<th>Judul</th>
+			<th>Narasi</th>
+			<th>Lokasi</th>
+			<th>File</th>
+	  </tr>
+	</thead>
+	<tbody>
+	{% for record in satelit_hotspot_modis %}
+		<tr>
+			<td>{{ forloop.counter }}</td>
+			<td>{{ record.batch_time }}</td>
+			<td>{{ record.judul }}</td>
+			<td class="text-left">{{ record.narasi }}</td>
+			<td>{{ record.lokasi }}</td>
+			<td><a href="http://dataweb.bmkg.go.id/Satelit/IMAGE/{{ record.file }}" target="_blank">{{ record.file }}</a></td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+    $('#satelit-hotspot-modis').DataTable({
+		"iDisplayLength": 100,
+	});
+} );
+</script>
+{% endblock extra_js %}

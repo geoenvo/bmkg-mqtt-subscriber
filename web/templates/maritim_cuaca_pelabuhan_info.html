@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load staticfiles  %}
+
+{% block title %}Maritim Cuaca Pelabuhan Info{% endblock title %}
+{% block content %}
+<div id="maritim-wilayah-pelabuhan-info">
+	<span id="page_title">Prakiraan Cuaca Pelabuhan <small>Diperbarui : {{ batch_time }}</small></span>
+	{% for record in maritim_cuaca_pelabuhan_info %}
+	<div id="record-pelabuhan-{{ forloop.counter }}" class="carousel slide">
+		<div class="carousel-inner">
+		{% for key, value in record.items %}
+		<div id="{{ key }}" class="item {% if forloop.counter == 1 %}active{% endif %}">
+			<table class="table" >
+				<tbody>
+					<tr><td colspan="4"><h1 id="{{ value.station_id }}" class="pull-left"><a href="#">{{ value.shortname }}</a></h1></td></tr>
+					<tr class="info">
+						<td colspan="4">
+							<span class="pull-left">
+								<h2>Cuaca Perairan {{ value.port_name }}</h2>
+								<h2 class="pull-left">{{ value.timestamp_1 }}</h2>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td rowspan="4">
+							{% if value.weather_icon %}
+								<img src="{% static 'image/'|add:value.weather_icon %}" class="weather-pelabuhan-info-img" />
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+						<td>
+							{% if value.weather_icon_id %}
+								<h2>{{ value.weather_icon_id }}</h2>
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<td>
+							{% if value.wd_from_icon_id and value.wd_to_icon_id %}
+								<h2><i class="wi wi-strong-wind"></i> {{ value.wd_from_icon_id }} - {{ value.wd_to_icon_id }}</h2>
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<td>
+							{% if value.ws_min and value.ws_max %}
+								<h2><i class="fa fa-tachometer"></i> {{ value.ws_min }} - {{ value.ws_max }} KNOTS</h2>
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<td>
+							{% if value.wave_min and value.wave_max %}
+								<h2>{{ value.wave_min }} - {{ value.wave_max }} Meter <strong>({{ value.pasang_min_description|upper }})</strong></h2>
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		{% endfor %}
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function(){
+    // Activate Carousel
+	{% for record in maritim_cuaca_pelabuhan_info %}
+	$("#record-pelabuhan-{{ forloop.counter }}").carousel({interval: 10000, pause: "false"});
+	{% endfor %}
+});
+</script>
+{% endblock extra_js %}

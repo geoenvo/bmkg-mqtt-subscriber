@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% load staticfiles  %}
+
+{% block title %}Gempa Terkini{% endblock title %}
+{% block content %}
+<table id= "gempa-terkini" class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Batch Time</th>
+			<th>Waktu Gempa</th>
+			<th>Lintang</th>
+			<th>Bujur</th>
+			<th>Magnitudo</th>
+			<th>Kedalaman</th>
+			<th>Wilayah</th>
+	  </tr>
+	</thead>
+	<tbody>
+	{% for record in gempa_terkini %}
+		<tr>
+			<td>{{ forloop.counter }}</td>
+			<td>{{ record.batch_time }}</td>
+			<td>{{ record.tanggal }}&#32;WIB</td>
+			<td>{{ record.lintang }}</td>
+			<td>{{ record.bujur }}</td>
+			<td>{{ record.magnitude }}</td>
+			<td>{{ record.kedalaman }}&#32;km</td>
+			<td class="text-left">
+				<a href="#" data-toggle="modal" data-target="#infoGempaModal" id="{{ forloop.counter }}" kode="{{ record.eqid }}" tgl="{{ record.tanggal }}" lt="{{ record.lintang }}" bjr="{{ record.bujur }}" mgt="{{ record.magnitude }}" kd="{{ record.kedalaman }}" wil="{{ record.wilayah }}">
+					{{ record.wilayah }}
+				</a>
+			</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+
+<!-- Modal -->
+<div id="infoGempaModal" class="modal fade" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Informasi Gempa Bumi Terkini (M &ge; 50)</h4>
+			</div>
+			<div class="modal-body" class="tanggal">
+				<h5>Peta Guncangan Gempa Bumi (Earthquake Shakemap) - InaTEWS BMKG</h5>
+				<div class="row">
+					<div class="col-sm-6">
+						<a class="image_link" href="" target="_blank">
+							<img class="image" src="" width="100%">
+						</a>
+					</div>
+					<div class="col-sm-6">
+						<strong>Parameter Gempa Bumi</strong>
+						<ul>
+							<li><span class="tanggal"></span>&#32;WIB</li>
+							<li>
+								<span>Magnitude&#58;</span>
+								<span class="magnitude"></span>
+								<span class="magnitude_unit"></span>
+							</li>
+							<li>
+								<span>Kedalaman&#58;</span>
+								<span class="kedalaman"></span>
+								<span class="kedalaman_unit"></span>
+							</li>
+							<li>
+								<span>Lokasi&#58;</span>
+								<span class="lintang"></span>&#45;<span class="bujur"></span>
+							</li>
+							<li><span class="wilayah"></span></li>
+						<ul>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+ $('#infoGempaModal').on('show.bs.modal', function(e) {     
+	var $modal = $(this),
+		id = e.relatedTarget.id,
+		kode = $("#" + id).attr("kode"),
+		tanggal = $("#" + id).attr("tgl"),
+		lintang = $("#" + id).attr("lt"),
+		bujur = $("#" + id).attr("bjr"),
+		magnitude = $("#" + id).attr("mgt"),
+		kedalaman = $("#" + id).attr("kd"),
+		wilayah = $("#" + id).attr("wil");
+	var image = "http://inatews.bmkg.go.id/shakemap/" + kode + "/download/intensity.jpg";
+	$modal.find('.image').attr("src", image);
+	$modal.find('.image_link').attr("href", image);
+	$modal.find('.tanggal').html(tanggal);
+	$modal.find('.magnitude').html(magnitude);
+	$modal.find('.kedalaman').html(kedalaman);
+	$modal.find('.lintang').html(lintang);
+	$modal.find('.bujur').html(bujur);
+	$modal.find('.wilayah').html(wilayah);
+})
+$(document).ready(function() {
+    $('#gempa-terkini').DataTable({
+		"iDisplayLength": 100,
+	});
+} );
+</script>
+{% endblock extra_js %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

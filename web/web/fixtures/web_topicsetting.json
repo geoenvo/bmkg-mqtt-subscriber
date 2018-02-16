@@ -1,0 +1,128 @@
+[
+{
+  "model": "web.topicsetting",
+  "pk": 1,
+  "fields": {
+    "topic": "cuaca/digitalforecast/sulawesitenggara",
+    "table": "digital_forecast",
+    "subscribe": true
+  }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 2,
+  "fields": {
+    "topic": "cuaca/maritim/pelayanan/kendari",
+    "table": "maritim_cuaca_pelayanan",
+    "subscribe": true
+  }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 3,
+  "fields": {
+    "topic": "cuaca/maritim/pelabuhan/kendari",
+    "table": "maritim_cuaca_pelabuhan",
+    "subscribe": true
+  }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 4,
+  "fields": {
+    "topic": "cuaca/maritim/penyebrangan/kendari",
+    "table": "maritim_cuaca_penyebrangan",
+    "subscribe": true
+  }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 5,
+  "fields": {
+    "topic": "cuaca/maritim/wisata_bahari/kendari",
+    "table": "maritim_wisata_bahari",
+    "subscribe": true
+  }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 6,
+  "fields": {
+    "topic": "cuaca/citrasatelit/hotspotmodis",
+    "table": "satelit_hotspot_modis",
+    "subscribe": true
+  }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 7,
+  "fields": {
+    "topic": "cuaca/citrasatelit/himawari/naturalcolor",
+    "table": "satelit_himawari_8_natural_color",
+    "subscribe": true
+  }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 8,
+  "fields": {
+    "topic": "cuaca/citrasatelit/himawari/irenhanced",
+    "table": "satelit_himawari_8_ir_enhanced",
+    "subscribe": true
+  }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 9,
+  "fields": {
+    "topic": "gempa/terkini",
+    "table": "gempa_terkini",
+    "subscribe": true
+  }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 10,
+  "fields": {
+    "topic": "gempa/terkinicsv",
+    "table": "gempa_terkini_csv",
+    "subscribe": true
+  }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 11,
+  "fields": {
+    "topic": "gempa/dirasakan",
+    "table": "gempa_dirasakan",
+    "subscribe": true
+  }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 12,
+  "fields": {
+    "topic": "iklim/kabupaten/74",
+    "table": "iklim_kabupaten_csv",
+    "subscribe": true
+  }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 13,
+  "fields": {
+    "topic": "iklim/kecamatan/7405",
+    "table": "iklim_kecamatan_csv",
+    "subscribe": true
+  }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 14,
+  "fields": {
+    "topic": "iklim/desa/7405060",
+    "table": "iklim_desa_csv",
+    "subscribe": true
+  }
+}
+]

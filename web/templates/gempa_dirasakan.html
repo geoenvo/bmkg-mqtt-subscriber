@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+{% load staticfiles  %}
+
+{% block title %}Gempa Dirasakan{% endblock title %}
+
+{% block content %}
+<table id="gempa-dirasakan" class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Batch Time</th>
+			<th>Waktu Gempa</th>
+			<th>Lintang</th>
+			<th>Bujur</th>
+			<th>Magnitudo</th>
+			<th>Kedalaman</th>
+			<th>Dirasakan (Skala MMI)</th>
+	  </tr>
+	</thead>
+	<tbody>
+	{% for record in gempa_dirasakan %}
+		<tr>
+			<td>{{ forloop.counter }}</td>
+			<td>{{ record.batch_time }}</td>
+			<td>{{ record.tanggal }}&#32;WIB</td>
+			<td>{{ record.lintang }}&#32;{{ record.lintang_unit }}</td>
+			<td>{{ record.bujur }}&#32;{{ record.bujur_unit }}</td>
+			<td>{{ record.magnitude }}&#32;{{ record.magnitude_unit }}</td>
+			<td>{{ record.kedalaman }}&#32;{{ record.kedalaman_unit }}</td>
+			<td class="text-left">
+				<a href="#" data-toggle="modal" data-target="#infoGempaModal" id="{{ forloop.counter }}" kode="{{ record.tanggal_fmt }}" tgl="{{ record.tanggal }}" lt="{{ record.lintang }}" ltu="{{ record.lintang_unit }}" bjr="{{ record.bujur }}" bjru="{{ record.bujur_unit }}" mgt="{{ record.magnitude }}" mgtu="{{ record.magnitude_unit }}" kd="{{ record.kedalaman }}" kdu="{{ record.kedalaman_unit }}" dirs="{{ record.dirasakan }}" ket="{{ record.keterangan }}">
+					{{ record.keterangan }}
+				</a>
+				<ul>
+				{% for lokasi in record.dirasakan %}
+					<li>{{ lokasi }}</li>
+				{% endfor %}
+				</ul>
+			</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+
+<!-- Modal -->
+<div id="infoGempaModal" class="modal fade" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Informasi Gempa Bumi Dirasakan</h4>
+			</div>
+			<div class="modal-body" class="tanggal">
+				<h5>Peta Guncangan Gempa Bumi (Earthquake Shakemap) - InaTEWS BMKG</h5>
+				<div class="row">
+					<div class="col-sm-6">
+						<a class="image_link" href="" target="_blank">
+							<img class="image" src="" width="100%">
+						</a>
+					</div>
+					<div class="col-sm-6">
+						<strong>Parameter Gempa Bumi</strong>
+						<ul>
+							<li><span class="tanggal"></span>&#32;WIB</li>
+							<li>
+								<span>Magnitude&#58;</span>
+								<span class="magnitude"></span>
+								<span class="magnitude_unit"></span>
+							</li>
+							<li>
+								<span>Kedalaman&#58;</span>
+								<span class="kedalaman"></span>
+								<span class="kedalaman_unit"></span>
+							</li>
+							<li>
+								<span>Lokasi&#58;</span>
+								<span class="lintang"></span>&#32;<span class="lintang_unit"></span>
+								<span class="bujur"></span>&#32;<span class="bujur_unit"></span>
+							</li>
+							<li><span class="keterangan"></span></li>
+							<li><span class="dirasakan"></span></li>
+						<ul>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+ $('#infoGempaModal').on('show.bs.modal', function(e) {     
+	var $modal = $(this),
+		id = e.relatedTarget.id,
+		kode = $("#" + id).attr("kode"),
+		tanggal = $("#" + id).attr("tgl"),
+		lintang = $("#" + id).attr("lt"),
+		lintang_unit = $("#" + id).attr("ltu"),
+		bujur = $("#" + id).attr("bjr"),
+		bujur_unit = $("#" + id).attr("bjru"),
+		magnitude = $("#" + id).attr("mgt"),
+		magnitude_unit = $("#" + id).attr("mgtu"),
+		kedalaman = $("#" + id).attr("kd"),
+		kedalaman_unit = $("#" + id).attr("kdu"),
+		dirasakan = $("#" + id).attr("dirs"),
+		keterangan = $("#" + id).attr("ket");
+	dirasakan = dirasakan.replace('[','').replace(']','').split(',');
+	var image = "http://inatews.bmkg.go.id/shakemaprasa/" + kode + "/download/intensity.jpg";
+	$modal.find('.image').attr("src", image);
+	$modal.find('.image_link').attr("href", image);
+	$modal.find('.tanggal').html(tanggal);
+	$modal.find('.magnitude').html(magnitude);
+	$modal.find('.magnitude_unit').html(magnitude_unit);
+	$modal.find('.kedalaman').html(kedalaman);
+	$modal.find('.kedalaman_unit').html(kedalaman_unit);
+	$modal.find('.lintang').html(lintang);
+	$modal.find('.lintang_unit').html(lintang_unit);
+	$modal.find('.bujur').html(bujur);
+	$modal.find('.bujur_unit').html(bujur_unit);
+	$modal.find('.keterangan').html(keterangan);
+	$modal.find('.dirasakan').html(dirasakan);
+})
+$(document).ready(function() {
+    $('#gempa-dirasakan').DataTable({
+		"iDisplayLength": 100,
+	});
+} );
+</script>
+{% endblock extra_js %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

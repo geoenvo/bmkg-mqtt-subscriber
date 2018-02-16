@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% load staticfiles  %}
+
+{% block title %}Iklim Kecamatan{% endblock title %}
+{% block content %}
+<table id="iklim-kecamatan-csv" class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Batch Time</th>
+			<th>Provinsi</th>
+			<th>Id Kabupaten \ Kota</th>
+			<th>Kabupaten Kota</th>
+			<th>Id Kecamatan</th>
+			<th>Kecamatan</th>
+			<th>Bulan</th>
+			<th>ACH_1_SBK</th>
+			<th>ACH_1_SB</th>
+			<th>ACH_1_SBB</th>
+			<th>ACH_1_M</th>
+			<th>ASH_1_SBK</th>
+			<th>ASH_1_SB</th>
+			<th>ASH_1_SBB</th>
+			<th>ASH_1_M</th>
+			<th>PCH_1_SBK</th>
+			<th>PCH_1_SB</th>
+			<th>PCH_1_SBB</th>
+			<th>PCH_1_M</th>
+			<th>PSH_1_SBK</th>
+			<th>PSH_1_SB</th>
+			<th>PSH_1_SBB</th>
+			<th>PSH_1_M</th>
+			<th>PCH_2_SBK</th>
+			<th>PCH_2_SB</th>
+			<th>PCH_2_SBB</th>
+			<th>PCH_2_M</th>
+			<th>PSH_2_SBK</th>
+			<th>PSH_2_SB</th>
+			<th>PSH_2_SBB</th>
+			<th>PSH_2_M</th>
+			<th>PCH_3_SBK</th>
+			<th>PCH_3_SB</th>
+			<th>PCH_3_SBB</th>
+			<th>PCH_3_M</th>
+			<th>PSH_3_SBK</th>
+			<th>PSH_3_SB</th>
+			<th>PSH_3_SBB</th>
+			<th>PSH_3_M</th>
+	  </tr>
+	</thead>
+	<tbody>
+	{% for record in iklim_kecamatan_csv %}
+		<tr>
+			<td>{{ forloop.counter }}</td>
+			<td>{{ record.batch_time }}</td>
+			<td>{{ record.provinsi }}</td>
+			<td>{{ record.id_kabupaten_kota }}</td>
+			<td>{{ record.kabupaten_kota }}</td>
+			<td>{{ record.id_kecamatan }}</td>
+			<td>{{ record.kecamatan }}</td>
+			<td>{{ record.month }}</td>
+			<td>{{ record.ach_1_sbk }}</td>
+			<td>{{ record.ach_1_sb }}</td>
+			<td>{{ record.ach_1_sbb }}</td>
+			<td>{{ record.ach_1_m }}</td>
+			<td>{{ resord.ash_1_sbk }}</td>
+			<td>{{ resord.ash_1_sb }}</td>
+			<td>{{ resord.ash_1_sbb }}</td>
+			<td>{{ resord.ash_1_m }}</td>
+			<td>{{ record.pch_1_sbk }}</td>
+			<td>{{ record.pch_1_sb }}</td>
+			<td>{{ record.pch_1_sbb }}</td>
+			<td>{{ record.pch_1_m }}</td>
+			<td>{{ resord.psh_1_sbk }}</td>
+			<td>{{ resord.psh_1_sb }}</td>
+			<td>{{ resord.psh_1_sbb }}</td>
+			<td>{{ resord.psh_1_m }}</td>
+			<td>{{ record.pch_2_sbk }}</td>
+			<td>{{ record.pch_2_sb }}</td>
+			<td>{{ record.pch_2_sbb }}</td>
+			<td>{{ record.pch_2_m }}</td>
+			<td>{{ resord.psh_2_sbk }}</td>
+			<td>{{ resord.psh_2_sb }}</td>
+			<td>{{ resord.psh_2_sbb }}</td>
+			<td>{{ resord.psh_2_m }}</td>
+			<td>{{ record.pch_3_sbk }}</td>
+			<td>{{ record.pch_3_sb }}</td>
+			<td>{{ record.pch_3_sbb }}</td>
+			<td>{{ record.pch_3_m }}</td>
+			<td>{{ resord.psh_3_sbk }}</td>
+			<td>{{ resord.psh_3_sb }}</td>
+			<td>{{ resord.psh_3_sbb }}</td>
+			<td>{{ resord.psh_3_m }}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</tpble>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+    $('#iklim-kecamatan-csv').DataTable({
+		"iDisplayLength": 100,
+	});
+} );
+</script>
+{% endblock extra_js %}

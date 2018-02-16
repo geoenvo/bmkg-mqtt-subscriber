@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% load staticfiles  %}
+
+{% block title %}Digital Forecast Info{% endblock title %}
+{% block content %}
+<div id="digital-forecast-info" class="carousel slide">
+	<span id="page_title">Prakiraan Cuaca Kota / Kabupaten (Info 1) <small>Diperbarui : {{ digital_forecast_info.0.batch_time }}</small></span>
+	<!-- Control Button -->
+	<br>
+	<button type="button" class="btn btn-primary h-0">H</button>
+	<button type="button" class="btn btn-primary h-1">H+1</button>
+	<div class="carousel-inner">
+		<!-- Content Info -->
+		<div id="h_0" class="item active">
+			<table  id="digital-forecast-info-h0" class="table" >
+				{% for record in digital_forecast_info %}
+				<thead>
+					<tr><th colspan="4"><h1 id="{{ record.area_id }}" class="pull-left"><a href="#">{{ record.area_name_en }}</a></h1></th></tr>
+					<tr><th colspan="4"><h2>Cuaca {{ record.timestamp_1 }}</h2></th></tr>
+					<tr class="info">
+						<th><h2><strong>Pagi</strong></h2></th>
+						<th><h2><strong>Siang</strong></h2></th>
+						<th><h2><strong>Malam</strong></h2></th>
+						<th><h2><strong>Dini Hari</strong></h2></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							{% if record.weather_00 %}
+								<img src="{% static 'image/'|add:record.weather_00 %}" class="weather-info-img" />
+								<h2>{{ record.weather_00|slice:":-7"|title }}</h2>
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+						<td>
+							{% if record.weather_06 %}
+								<img src="{% static 'image/'|add:record.weather_06 %}" class="weather-info-img" />
+								<h2>{{ record.weather_06|slice:":-7"|title }}</h2>
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+						<td>
+							{% if record.weather_12 %}
+								<img src="{% static 'image/'|add:record.weather_12 %}" class="weather-info-img" />
+								<h2>{{ record.weather_12|slice:":-7"|title }}</h2>
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+						<td>
+							{% if record.weather_18 %}
+								<img src="{% static 'image/'|add:record.weather_18 %}" class="weather-info-img" />
+								<h2>{{ record.weather_18|slice:":-7"|title }}</h2>
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+					</tr>
+				</tbody>
+				{% endfor %}
+			</table>
+		</div>
+		<div id="h_1" class="item">
+			<table  id="digital-forecast-info-h1" class="table" >
+				{% for record in digital_forecast_info %}
+				<thead>
+					<tr><th colspan="4"><h1 id="{{ record.area_id }}" class="pull-left"><a href="#">{{ record.area_name_en }}</a></h1></th></tr>
+					<tr><th colspan="4"><h2>Cuaca {{ record.timestamp_2 }}</h2></th></tr>
+					<tr class="info">
+						<th><h2><strong>Pagi</strong></h2></th>
+						<th><h2><strong>Siang</strong></h2></th>
+						<th><h2><strong>Malam</strong></h2></th>
+						<th><h2><strong>Dini Hari</strong></h2></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							{% if record.weather_24 %}
+								<img src="{% static 'image/'|add:record.weather_24 %}" class="weather-info-img" />
+								<h2>{{ record.weather_24|slice:":-7"|title }}</h2>
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+						<td>
+							{% if record.weather_30 %}
+								<img src="{% static 'image/'|add:record.weather_30 %}" class="weather-info-img" />
+								<h2>{{ record.weather_30|slice:":-7"|title }}</h2>
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+						<td>
+							{% if record.weather_36 %}
+								<img src="{% static 'image/'|add:record.weather_36 %}" class="weather-info-img" />
+								<h2>{{ record.weather_36|slice:":-7"|title }}</h2>
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+						<td>
+							{% if record.weather_42 %}
+								<img src="{% static 'image/'|add:record.weather_42 %}" class="weather-info-img" />
+								<h2>{{ record.weather_42|slice:":-7"|title }}</h2>
+							{% else %}
+								&#45;
+							{% endif %}
+						</td>
+					</tr>
+				</tbody>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function(){
+    // Activate Carousel
+	$("#digital-forecast-info").carousel({interval: 10000, pause: "false"});
+    // Enable Carousel Indicators
+    $(".h-0").click(function(){
+        $("#digital-forecast-info").carousel(0);
+    });
+    $(".h-1").click(function(){
+        $("#digital-forecast-info").carousel(1);
+    });
+});
+</script>
+{% endblock extra_js %}

@@ -1,0 +1,156 @@
+/* Main Style */
+body {
+	min-height: 2000px;
+	padding-top: 60px;
+    padding-bottom: 20px;
+}
+
+table, th, td {
+	text-align: center;
+}
+
+.nav>li>a:focus,
+.nav>li>a:hover {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.nav .open>a,
+.nav .open>a:focus,
+.nav .open>a:hover {
+    background-color: transparent;
+    border-color: #337ab7;
+}
+
+nav a.dropdown-toggle, 
+nav a.navbar-brand {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.dropdown-menu li  span a:hover {
+	background-color: #eeeeee;
+}
+
+.dropdown-menu li  span a.all {
+	padding: 3px 0px;
+}
+
+.dropdown-menu li  span a {
+	text-decoration: none;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+	text-align: right;
+}
+
+.dropdown-menu li span {
+    white-space: nowrap;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.weather-img{
+	display: block;
+    /* max-width: 80%; */
+    width: 64px;
+	/* height: auto; */
+	padding-left: 10px;
+}
+
+#content a {
+    text-decoration: none;
+	cursor: default;
+    color: #000000;
+	pointer-events: none;
+}
+
+#digital-forecast-info h1{
+	font-size: 40px;
+}
+#digital-forecast-info h2{
+	font-size: 20px;
+}
+
+#digital-forecast-info2 h1{
+	font-size: 60px;
+}
+#digital-forecast-info2 h2{
+	font-size: 40px;
+}
+
+#maritim-wilayah-pelabuhan-info h1{
+	font-size: 25px;
+}
+#maritim-wilayah-pelabuhan-info h2{
+	font-size: 20px;
+}
+
+#maritim-wilayah-pelayanan-info h1{
+	font-size: 25px;
+}
+#maritim-wilayah-pelayanan-info h2{
+	font-size: 18px;
+}
+
+#maritim-wilayah-penyebrangan-info h1{
+	font-size: 25px;
+}
+#maritim-wilayah-penyebrangan-info h2{
+	font-size: 20px;
+}
+
+#maritim-wilayah-wisata-bahari-info h1{
+	font-size: 25px;
+}
+#maritim-wilayah-wisata-bahari-info h2{
+	font-size: 20px;
+}
+
+#iklim-kabupaten-info h1{
+	font-size: 36px;
+}
+#iklim-kabupaten-info h2{
+	font-size: 24px;
+}
+
+#iklim-kecamatan-info h1{
+	font-size: 36px;
+}
+#iklim-kecamatan-info h2{
+	font-size: 24px;
+}
+
+#iklim-desa-info h1{
+	font-size: 36px;
+}
+#iklim-desa-info h2{
+	font-size: 24px;
+}
+
+.weather-info-img{
+	width: 140px;
+}
+.weather-info2-img{
+	width: 280px;
+}
+.weather-pelayanan-info-img{
+	width: 140px;
+}
+.weather-pelabuhan-info-img{
+	width: 220px;
+}
+.weather-penyebrangan-info-img{
+	width: 220px;
+}
+.weather-wisata-bahari-info-img{
+	width: 220px;
+}
+
+#page_title{
+	font-size: 36px;
+	font-weight: bold;
+}
