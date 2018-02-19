@@ -191,12 +191,12 @@ from .models import GeneralSetting, TopicSetting
 # Initial Site Name and Refresh Time
 try:
     site_name = GeneralSetting.objects.latest('pk').title
-except GeneralSetting.DoesNotExist:
+except:
     site_name = None
 
 try:
     refresh_time = GeneralSetting.objects.latest('pk').refresh
-except GeneralSetting.DoesNotExist:
+except:
     refresh_time = None
 
 # Site Name

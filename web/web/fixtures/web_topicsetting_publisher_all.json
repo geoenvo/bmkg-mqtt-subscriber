@@ -1,0 +1,1118 @@
+[
+{
+  "model": "web.topicsetting",
+  "pk": 1,
+  "fields": {
+    "topic": "cuaca/digitalforecast/aceh",
+    "table": "digital_forecast",
+    "subscribe": true
+  }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 2,
+    "fields": {
+      "topic": "cuaca/digitalforecast/bali",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 3,
+    "fields": {
+      "topic": "cuaca/digitalforecast/bangkabelitung",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 4,
+    "fields": {
+      "topic": "cuaca/digitalforecast/banten",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 5,
+    "fields": {
+      "topic": "cuaca/digitalforecast/bengkulu",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 6,
+    "fields": {
+      "topic": "cuaca/digitalforecast/diyogyakarta",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 7,
+    "fields": {
+      "topic": "cuaca/digitalforecast/dkijakarta",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 8,
+    "fields": {
+      "topic": "cuaca/digitalforecast/gorontalo",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 9,
+    "fields": {
+      "topic": "cuaca/digitalforecast/indonesia",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 10,
+    "fields": {
+      "topic": "cuaca/digitalforecast/jambi",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 11,
+    "fields": {
+      "topic": "cuaca/digitalforecast/jawabarat",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 12,
+    "fields": {
+      "topic": "cuaca/digitalforecast/jawatengah",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 13,
+    "fields": {
+      "topic": "cuaca/digitalforecast/jawatimur",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 14,
+    "fields": {
+      "topic": "cuaca/digitalforecast/kalimantanbarat",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 15,
+    "fields": {
+      "topic": "cuaca/digitalforecast/kalimantanselatan",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 16,
+    "fields": {
+      "topic": "cuaca/digitalforecast/kalimantantengah",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 17,
+    "fields": {
+      "topic": "cuaca/digitalforecast/kalimantantimur",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 18,
+    "fields": {
+      "topic": "cuaca/digitalforecast/kalimantanutara",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 19,
+    "fields": {
+      "topic": "cuaca/digitalforecast/kepulauanriau",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 20,
+    "fields": {
+      "topic": "cuaca/digitalforecast/lampung",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 21,
+    "fields": {
+      "topic": "cuaca/digitalforecast/maluku",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 22,
+    "fields": {
+      "topic": "cuaca/digitalforecast/malukuutara",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 23,
+    "fields": {
+      "topic": "cuaca/digitalforecast/nusatenggarabarat",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 24,
+    "fields": {
+      "topic": "cuaca/digitalforecast/nusatenggaratimur",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 25,
+    "fields": {
+      "topic": "cuaca/digitalforecast/papua",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 26,
+    "fields": {
+      "topic": "cuaca/digitalforecast/papuabarat",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 27,
+    "fields": {
+      "topic": "cuaca/digitalforecast/riau",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 28,
+    "fields": {
+      "topic": "cuaca/digitalforecast/sulawesibarat",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 29,
+    "fields": {
+      "topic": "cuaca/digitalforecast/sulawesiselatan",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 30,
+    "fields": {
+      "topic": "cuaca/digitalforecast/sulawesitengah",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 31,
+    "fields": {
+      "topic": "cuaca/digitalforecast/sulawesitenggara",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 32,
+    "fields": {
+      "topic": "cuaca/digitalforecast/sulawesiutara",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 33,
+    "fields": {
+      "topic": "cuaca/digitalforecast/sumaterabarat",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 34,
+    "fields": {
+      "topic": "cuaca/digitalforecast/sumateraselatan",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 35,
+    "fields": {
+      "topic": "cuaca/digitalforecast/sumaterautara",
+      "table": "digital_forecast",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 36,
+    "fields": {
+      "topic": "cuaca/maritim/pelayanan/ambon",
+      "table": "maritim_cuaca_pelayanan",
+    "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 37,
+    "fields": {
+      "topic": "cuaca/maritim/pelayanan/balikpapan",
+      "table": "maritim_cuaca_pelayanan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 38,
+    "fields": {
+      "topic": "cuaca/maritim/pelayanan/batam",
+      "table": "maritim_cuaca_pelayanan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 39,
+    "fields": {
+      "topic": "cuaca/maritim/pelayanan/belawan",
+      "table": "maritim_cuaca_pelayanan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 40,
+    "fields": {
+      "topic": "cuaca/maritim/pelayanan/biak",
+      "table": "maritim_cuaca_pelayanan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 41,
+    "fields": {
+      "topic": "cuaca/maritim/pelayanan/bitung",
+      "table": "maritim_cuaca_pelayanan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 42,
+    "fields": {
+      "topic": "cuaca/maritim/pelayanan/cilacap",
+      "table": "maritim_cuaca_pelayanan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 43,
+    "fields": {
+      "topic": "cuaca/maritim/pelayanan/denpasar",
+      "table": "maritim_cuaca_pelayanan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 44,
+    "fields": {
+      "topic": "cuaca/maritim/pelayanan/kendari",
+      "table": "maritim_cuaca_pelayanan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 45,
+    "fields": {
+      "topic": "cuaca/maritim/pelayanan/kupang",
+      "table": "maritim_cuaca_pelayanan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 46,
+    "fields": {
+      "topic": "cuaca/maritim/pelayanan/lampung",
+      "table": "maritim_cuaca_pelayanan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 47,
+    "fields": {
+      "topic": "cuaca/maritim/pelayanan/makassar",
+      "table": "maritim_cuaca_pelayanan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 48,
+    "fields": {
+      "topic": "cuaca/maritim/pelayanan/merauke",
+      "table": "maritim_cuaca_pelayanan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 49,
+    "fields": {
+      "topic": "cuaca/maritim/pelayanan/pontianak",
+      "table": "maritim_cuaca_pelayanan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 50,
+    "fields": {
+      "topic": "cuaca/maritim/pelayanan/semarang",
+      "table": "maritim_cuaca_pelayanan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 51,
+    "fields": {
+      "topic": "cuaca/maritim/pelayanan/sorong",
+      "table": "maritim_cuaca_pelayanan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 52,
+    "fields": {
+      "topic": "cuaca/maritim/pelayanan/tanjungperak",
+      "table": "maritim_cuaca_pelayanan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 53,
+    "fields": {
+      "topic": "cuaca/maritim/pelayanan/tanjungpriok",
+      "table": "maritim_cuaca_pelayanan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 54,
+    "fields": {
+      "topic": "cuaca/maritim/pelayanan/telukbayur",
+      "table": "maritim_cuaca_pelayanan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 55,
+    "fields": {
+      "topic": "cuaca/maritim/pelayanan/ternate",
+      "table": "maritim_cuaca_pelayanan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 56,
+    "fields": {
+      "topic": "cuaca/maritim/pelabuhan/ambon",
+      "table": "maritim_cuaca_pelabuhan",
+    "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 57,
+    "fields": {
+      "topic": "cuaca/maritim/pelabuhan/balikpapan",
+      "table": "maritim_cuaca_pelabuhan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 58,
+    "fields": {
+      "topic": "cuaca/maritim/pelabuhan/batam",
+      "table": "maritim_cuaca_pelabuhan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 59,
+    "fields": {
+      "topic": "cuaca/maritim/pelabuhan/belawan",
+      "table": "maritim_cuaca_pelabuhan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 60,
+    "fields": {
+      "topic": "cuaca/maritim/pelabuhan/biak",
+      "table": "maritim_cuaca_pelabuhan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 61,
+    "fields": {
+      "topic": "cuaca/maritim/pelabuhan/bitung",
+      "table": "maritim_cuaca_pelabuhan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 62,
+    "fields": {
+      "topic": "cuaca/maritim/pelabuhan/cilacap",
+      "table": "maritim_cuaca_pelabuhan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 63,
+    "fields": {
+      "topic": "cuaca/maritim/pelabuhan/denpasar",
+      "table": "maritim_cuaca_pelabuhan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 64,
+    "fields": {
+      "topic": "cuaca/maritim/pelabuhan/kendari",
+      "table": "maritim_cuaca_pelabuhan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 65,
+    "fields": {
+      "topic": "cuaca/maritim/pelabuhan/kupang",
+      "table": "maritim_cuaca_pelabuhan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 66,
+    "fields": {
+      "topic": "cuaca/maritim/pelabuhan/lampung",
+      "table": "maritim_cuaca_pelabuhan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 67,
+    "fields": {
+      "topic": "cuaca/maritim/pelabuhan/makassar",
+      "table": "maritim_cuaca_pelabuhan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 68,
+    "fields": {
+      "topic": "cuaca/maritim/pelabuhan/merauke",
+      "table": "maritim_cuaca_pelabuhan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 69,
+    "fields": {
+      "topic": "cuaca/maritim/pelabuhan/pontianak",
+      "table": "maritim_cuaca_pelabuhan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 70,
+    "fields": {
+      "topic": "cuaca/maritim/pelabuhan/semarang",
+      "table": "maritim_cuaca_pelabuhan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 71,
+    "fields": {
+      "topic": "cuaca/maritim/pelabuhan/sorong",
+      "table": "maritim_cuaca_pelabuhan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 72,
+    "fields": {
+      "topic": "cuaca/maritim/pelabuhan/tanjungperak",
+      "table": "maritim_cuaca_pelabuhan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 73,
+    "fields": {
+      "topic": "cuaca/maritim/pelabuhan/tanjungpriok",
+      "table": "maritim_cuaca_pelabuhan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 74,
+    "fields": {
+      "topic": "cuaca/maritim/pelabuhan/telukbayur",
+      "table": "maritim_cuaca_pelabuhan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 75,
+    "fields": {
+      "topic": "cuaca/maritim/pelabuhan/ternate",
+      "table": "maritim_cuaca_pelabuhan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 76,
+    "fields": {
+      "topic": "cuaca/maritim/penyebrangan/ambon",
+      "table": "maritim_cuaca_penyebrangan",
+    "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 77,
+    "fields": {
+      "topic": "cuaca/maritim/penyebrangan/balikpapan",
+      "table": "maritim_cuaca_penyebrangan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 78,
+    "fields": {
+      "topic": "cuaca/maritim/penyebrangan/batam",
+      "table": "maritim_cuaca_penyebrangan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 79,
+    "fields": {
+      "topic": "cuaca/maritim/penyebrangan/belawan",
+      "table": "maritim_cuaca_penyebrangan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 80,
+    "fields": {
+      "topic": "cuaca/maritim/penyebrangan/biak",
+      "table": "maritim_cuaca_penyebrangan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 81,
+    "fields": {
+      "topic": "cuaca/maritim/penyebrangan/bitung",
+      "table": "maritim_cuaca_penyebrangan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 82,
+    "fields": {
+      "topic": "cuaca/maritim/penyebrangan/cilacap",
+      "table": "maritim_cuaca_penyebrangan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 83,
+    "fields": {
+      "topic": "cuaca/maritim/penyebrangan/denpasar",
+      "table": "maritim_cuaca_penyebrangan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 84,
+    "fields": {
+      "topic": "cuaca/maritim/penyebrangan/kendari",
+      "table": "maritim_cuaca_penyebrangan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 85,
+    "fields": {
+      "topic": "cuaca/maritim/penyebrangan/kupang",
+      "table": "maritim_cuaca_penyebrangan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 86,
+    "fields": {
+      "topic": "cuaca/maritim/penyebrangan/lampung",
+      "table": "maritim_cuaca_penyebrangan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 87,
+    "fields": {
+      "topic": "cuaca/maritim/penyebrangan/makassar",
+      "table": "maritim_cuaca_penyebrangan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 88,
+    "fields": {
+      "topic": "cuaca/maritim/penyebrangan/merauke",
+      "table": "maritim_cuaca_penyebrangan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 89,
+    "fields": {
+      "topic": "cuaca/maritim/penyebrangan/pontianak",
+      "table": "maritim_cuaca_penyebrangan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 90,
+    "fields": {
+      "topic": "cuaca/maritim/penyebrangan/semarang",
+      "table": "maritim_cuaca_penyebrangan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 91,
+    "fields": {
+      "topic": "cuaca/maritim/penyebrangan/sorong",
+      "table": "maritim_cuaca_penyebrangan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 92,
+    "fields": {
+      "topic": "cuaca/maritim/penyebrangan/tanjungperak",
+      "table": "maritim_cuaca_penyebrangan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 93,
+    "fields": {
+      "topic": "cuaca/maritim/penyebrangan/tanjungpriok",
+      "table": "maritim_cuaca_penyebrangan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 94,
+    "fields": {
+      "topic": "cuaca/maritim/penyebrangan/telukbayur",
+      "table": "maritim_cuaca_penyebrangan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 95,
+    "fields": {
+      "topic": "cuaca/maritim/penyebrangan/ternate",
+      "table": "maritim_cuaca_penyebrangan",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 96,
+    "fields": {
+      "topic": "cuaca/maritim/wisata_bahari/ambon",
+      "table": "maritim_wisata_bahari",
+    "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 97,
+    "fields": {
+      "topic": "cuaca/maritim/wisata_bahari/balikpapan",
+      "table": "maritim_wisata_bahari",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 98,
+    "fields": {
+      "topic": "cuaca/maritim/wisata_bahari/batam",
+      "table": "maritim_wisata_bahari",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 99,
+    "fields": {
+      "topic": "cuaca/maritim/wisata_bahari/belawan",
+      "table": "maritim_wisata_bahari",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 100,
+    "fields": {
+      "topic": "cuaca/maritim/wisata_bahari/biak",
+      "table": "maritim_wisata_bahari",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 101,
+    "fields": {
+      "topic": "cuaca/maritim/wisata_bahari/bitung",
+      "table": "maritim_wisata_bahari",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 102,
+    "fields": {
+      "topic": "cuaca/maritim/wisata_bahari/cilacap",
+      "table": "maritim_wisata_bahari",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 103,
+    "fields": {
+      "topic": "cuaca/maritim/wisata_bahari/denpasar",
+      "table": "maritim_wisata_bahari",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 104,
+    "fields": {
+      "topic": "cuaca/maritim/wisata_bahari/kendari",
+      "table": "maritim_wisata_bahari",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 105,
+    "fields": {
+      "topic": "cuaca/maritim/wisata_bahari/kupang",
+      "table": "maritim_wisata_bahari",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 106,
+    "fields": {
+      "topic": "cuaca/maritim/wisata_bahari/lampung",
+      "table": "maritim_wisata_bahari",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 107,
+    "fields": {
+      "topic": "cuaca/maritim/wisata_bahari/makassar",
+      "table": "maritim_wisata_bahari",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 108,
+    "fields": {
+      "topic": "cuaca/maritim/wisata_bahari/merauke",
+      "table": "maritim_wisata_bahari",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 109,
+    "fields": {
+      "topic": "cuaca/maritim/wisata_bahari/pontianak",
+      "table": "maritim_wisata_bahari",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 110,
+    "fields": {
+      "topic": "cuaca/maritim/wisata_bahari/semarang",
+      "table": "maritim_wisata_bahari",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 111,
+    "fields": {
+      "topic": "cuaca/maritim/wisata_bahari/sorong",
+      "table": "maritim_wisata_bahari",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 112,
+    "fields": {
+      "topic": "cuaca/maritim/wisata_bahari/tanjungperak",
+      "table": "maritim_wisata_bahari",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 113,
+    "fields": {
+      "topic": "cuaca/maritim/wisata_bahari/tanjungpriok",
+      "table": "maritim_wisata_bahari",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 114,
+    "fields": {
+      "topic": "cuaca/maritim/wisata_bahari/telukbayur",
+      "table": "maritim_wisata_bahari",
+      "subscribe": true
+    }
+},
+{
+    "model": "web.topicsetting",
+    "pk": 115,
+    "fields": {
+      "topic": "cuaca/maritim/wisata_bahari/ternate",
+      "table": "maritim_wisata_bahari",
+      "subscribe": true
+    }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 116,
+  "fields": {
+    "topic": "cuaca/citrasatelit/hotspotmodis",
+    "table": "satelit_hotspot_modis",
+    "subscribe": true
+  }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 117,
+  "fields": {
+    "topic": "cuaca/citrasatelit/himawari/naturalcolor",
+    "table": "satelit_himawari_8_natural_color",
+    "subscribe": true
+  }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 118,
+  "fields": {
+    "topic": "cuaca/citrasatelit/himawari/irenhanced",
+    "table": "satelit_himawari_8_ir_enhanced",
+    "subscribe": true
+  }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 119,
+  "fields": {
+    "topic": "gempa/terkini",
+    "table": "gempa_terkini",
+    "subscribe": true
+  }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 120,
+  "fields": {
+    "topic": "gempa/terkinicsv",
+    "table": "gempa_terkini_csv",
+    "subscribe": true
+  }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 121,
+  "fields": {
+    "topic": "gempa/dirasakan",
+    "table": "gempa_dirasakan",
+    "subscribe": true
+  }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 122,
+  "fields": {
+    "topic": "iklim/kabupaten/74",
+    "table": "iklim_kabupaten_csv",
+    "subscribe": true
+  }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 123,
+  "fields": {
+    "topic": "iklim/kecamatan/7405",
+    "table": "iklim_kecamatan_csv",
+    "subscribe": true
+  }
+},
+{
+  "model": "web.topicsetting",
+  "pk": 124,
+  "fields": {
+    "topic": "iklim/desa/7405060",
+    "table": "iklim_desa_csv",
+    "subscribe": true
+  }
+}
+]

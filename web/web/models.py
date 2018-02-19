@@ -4,25 +4,37 @@ from django.db import models
 class GeneralSetting(models.Model):
     address = models.CharField(
         max_length=255,
-        blank=True,
         default='localhost',
+        verbose_name="Broker Address",
     )
     keepalive = models.IntegerField(
         default=60,
-    )
-    title = models.CharField(
-        max_length=255,
-        blank=True,
-        default='BMKG MQTT',
-    )
-    refresh = models.IntegerField(
-        default=300,
+        verbose_name="Broker Keepalive",
     )
     user = models.CharField(
         max_length=255,
+        verbose_name="Broker User",
     )
     password = models.CharField(
         max_length=255,
+        verbose_name="Broker Password",
+    )
+    client_id = models.CharField(
+        max_length=255,
+        verbose_name="Broker Client ID",
+    )
+    client_id_sub = models.CharField(
+        max_length=255,
+        verbose_name="Broker Client ID Sub",
+    )
+    title = models.CharField(
+        max_length=255,
+        default='BMKG MQTT',
+        verbose_name="Site Title",
+    )
+    refresh = models.IntegerField(
+        default=300,
+        verbose_name="Refresh (s)",
     )
 
 

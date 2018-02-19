@@ -8,7 +8,9 @@
     "title": "BMKG MQTT",
     "refresh": 300,
     "user": "bmkg_mqtt",
-    "password": "bmkgmqttpassword"
+    "password": "bmkgmqttpassword",
+    "client_id": "bmkg_mqtt",
+    "client_id_sub": "bmkg_mqtt_subscriber_"
   }
 }
 ]

@@ -336,13 +336,18 @@ BROKER_ADDRESS = GeneralSetting.objects.latest('pk').address
 
 # Client
 
-CLIENT_ID = "bmkg_mqtt"
-CLIENT_ID_SUB = "bmkg_mqtt_subscriber_" # changeme
+# CLIENT_ID = "bmkg_mqtt"
+# CLIENT_ID_SUB = "bmkg_mqtt_subscriber_" # changeme
+CLIENT_ID = GeneralSetting.objects.latest('pk').client_id
+CLIENT_ID_SUB = GeneralSetting.objects.latest('pk').client_id_sub
+
 
 # Mosquitto default user and password
 
-MOSQUITTO_USER = "" # bmkg_mqtt changeme
-MOSQUITTO_PASSWORD = "" # bmkgmqttpassword changeme
+# MOSQUITTO_USER = "" # bmkg_mqtt changeme
+# MOSQUITTO_PASSWORD = "" # bmkgmqttpassword changeme
+MOSQUITTO_USER = GeneralSetting.objects.latest('pk').user
+MOSQUITTO_PASSWORD = GeneralSetting.objects.latest('pk').password
 
 '''
 # Topic List (comment out irrelevant topic)

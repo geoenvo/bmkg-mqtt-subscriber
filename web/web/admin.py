@@ -10,6 +10,8 @@ class GeneralSettingAdmin(admin.ModelAdmin):
         'refresh',
         'user',
         'password',
+        'client_id',
+        'client_id_sub',
     ]
 
 

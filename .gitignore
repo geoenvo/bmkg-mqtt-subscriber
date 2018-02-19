@@ -5,7 +5,7 @@
 *.db
 .idea
 .vagrant
-.sqlite3
+*.sqlite3
 settings.py
 supervisord.conf
 web/static/*
