@@ -4,7 +4,7 @@
 {% block title %}Maritim Cuaca Pelayanan Info{% endblock title %}
 {% block content %}
 <div id="maritim-wilayah-pelayanan-info">
-	<span id="page_title">Prakiraan Cuaca Wilayah Pelayanan <small>Diperbarui : {{ batch_time }}</small></span>
+	<span id="page_title">Prakiraan Cuaca Wilayah Pelayanan <small>Diperbarui : {{ batch_time|default:"" }}</small></span>
 	{% for record in maritim_cuaca_pelayanan_info %}
 	<div id="record-pelayanan-{{ forloop.counter }}" class="carousel slide">
 		<div class="carousel-inner">
@@ -16,8 +16,8 @@
 					<tr class="info">
 						<td colspan="4">
 							<span class="pull-left">
-								<h2>Cuaca Perairan {{ value.hari_ini.area_name }}</h2>
-								<h2 class="pull-left">{{ value.hari_ini.timestamp_1 }}</h2>
+								<h2 class="pull-left">Cuaca Perairan {{ value.hari_ini.area_name }}</h2><br>
+								<h2 class="pull-left">Berlaku {{ value.hari_ini.validfrom }} - {{ value.hari_ini.validto }}</h2>
 							</span>
 						</td>
 					</tr>

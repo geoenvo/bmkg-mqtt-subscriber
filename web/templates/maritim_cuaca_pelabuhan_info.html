@@ -4,7 +4,7 @@
 {% block title %}Maritim Cuaca Pelabuhan Info{% endblock title %}
 {% block content %}
 <div id="maritim-wilayah-pelabuhan-info">
-	<span id="page_title">Prakiraan Cuaca Pelabuhan <small>Diperbarui : {{ batch_time }}</small></span>
+	<span id="page_title">Prakiraan Cuaca Pelabuhan <small>Diperbarui : {{ batch_time|default:"" }}</small></span>
 	{% for record in maritim_cuaca_pelabuhan_info %}
 	<div id="record-pelabuhan-{{ forloop.counter }}" class="carousel slide">
 		<div class="carousel-inner">
@@ -16,8 +16,8 @@
 					<tr class="info">
 						<td colspan="4">
 							<span class="pull-left">
-								<h2>Cuaca Perairan {{ value.port_name }}</h2>
-								<h2 class="pull-left">{{ value.timestamp_1 }}</h2>
+								<h2 class="pull-left">Cuaca Perairan {{ value.port_name }}</h2><br>
+								<h2 class="pull-left">Berlaku {{ value.validfrom }} - {{ value.validto }}</h2>
 							</span>
 						</td>
 					</tr>

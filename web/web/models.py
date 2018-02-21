@@ -36,6 +36,26 @@ class GeneralSetting(models.Model):
         default=300,
         verbose_name="Refresh (s)",
     )
+    show_bps_id_kab = models.IntegerField(
+        verbose_name="Filter BPS ID (Kabupaten)",
+        blank=True,
+        null=True
+    )
+    show_bps_id_kec = models.IntegerField(
+        verbose_name="Filter BPS ID (Kecamatan)",
+        blank=True,
+        null=True
+    )
+    show_bps_id_des = models.IntegerField(
+        verbose_name="Filter BPS ID (Desa)",
+        blank=True,
+        null=True
+    )
+    show_area_id = models.IntegerField(
+        verbose_name="Filter Area ID",
+        blank=True,
+        null=True
+    )
 
 
 class TopicSetting(models.Model):

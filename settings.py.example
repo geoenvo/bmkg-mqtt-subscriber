@@ -300,6 +300,29 @@ kode_list = [
     ["17", "Bandara Babullah Ternate, Jl. Batu Agus KP. 28, Ternate, Maluku Utara, 97728", "0921-3127902 / 0921-331292", "0921-3110430", "stamet.babullah@bmkg.go.id", "Ternate"],
 ]
 
+penyebrangan_id_list = {
+    "15" : [], # Ambon
+    "34" : ["61"], # Balikpapan
+    "5" : ["14", "15"], # Batam
+    "1" : ["1", "2", "3", "4", "5", "6", "7", "8", "9"], # Belawan
+    "13" : [], # Biak
+    "11" : ["92", "93", "95", "96", "97", "98", "99", "100", "102"], # Bitung
+    "8" : [], # Cilacap
+    "31" : ["32", "34", "35"], # Denpasar
+    "14" : ["103", "104", "105", "106", "107", "108", "109"], # Kendari
+    "10" : ["40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58"], # Kupang
+    "3" : ["20"], # Lampung
+    "12" : ["22", "23"], # Makassar
+    "43" : [], # Merauke
+    "4" : [], # Pontianak
+    "7" : ["21"], # Semarang
+    "44" : ["83", "88", "89", "90", "91"], # Sorong
+    "9" : ["29"], # Tanjung Perak
+    "6" : ["18", "110"], # Tanjung Priok
+    "2" : ["10", "11", "12", "13", "81", "82"], # Teluk Bayur
+    "17" : ["67", "68", "69", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80"],  # Ternate
+}
+
 maritim_cuaca_pelabuhan_xml_url_list = zip(
     [maritim_xml_url + 'pelabuhan_utama/?stasiun=' + kode[0] for kode in kode_list], # Pelabuhan Utama
     [maritim_xml_url + 'pelabuhan_laut/?stasiun=' + kode[0] for kode in kode_list], # Pelabuhan Laut,
@@ -309,10 +332,15 @@ maritim_cuaca_pelayanan_xml_url_list = zip(
     [[maritim_xml_url + 'wilayah_pelayanan/prakiraan?kode=' + sid for sid in area_id_list[kode[0]]] for kode in kode_list],
     kode_list
 )
+maritim_cuaca_penyebrangan_xml_url_list = zip(
+    [[maritim_xml_url + 'jalur_penyebrangan?id=' + sid for sid in penyebrangan_id_list[kode[0]]] for kode in kode_list],
+    kode_list
+)
 
 XML_URL = {
     'maritim_cuaca_pelabuhan': maritim_cuaca_pelabuhan_xml_url_list,
     'maritim_cuaca_pelayanan': maritim_cuaca_pelayanan_xml_url_list,
+    'maritim_cuaca_penyebrangan': maritim_cuaca_penyebrangan_xml_url_list,
 }
 
 # Setup Environ

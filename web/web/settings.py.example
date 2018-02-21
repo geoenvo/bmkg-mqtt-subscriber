@@ -188,6 +188,29 @@ django.setup()
 
 from .models import GeneralSetting, TopicSetting
 
+# By Filter
+try:
+    show_bps_id_kab = GeneralSetting.objects.latest('pk').show_bps_id_kab
+except:
+    show_bps_id_kab = ""
+try:
+    show_bps_id_kec = GeneralSetting.objects.latest('pk').show_bps_id_kec
+except:
+    show_bps_id_kec = ""
+try:
+    show_bps_id_des = GeneralSetting.objects.latest('pk').show_bps_id_des
+except:
+    show_bps_id_des = ""
+try:
+    show_area_id = GeneralSetting.objects.latest('pk').show_area_id
+except:
+    show_area_id = ""
+
+SHOW_BPS_ID_KAB = show_bps_id_kab
+SHOW_BPS_ID_KEC = show_bps_id_kec
+SHOW_BPS_ID_DES = show_bps_id_des
+SHOW_AREA_ID = show_area_id
+
 # Initial Site Name and Refresh Time
 try:
     site_name = GeneralSetting.objects.latest('pk').title

@@ -4,7 +4,7 @@
 {% block title %}Maritim Cuaca Penyebrangan Info{% endblock title %}
 {% block content %}
 <div id="maritim-wilayah-penyebrangan-info">
-	<span id="page_title">Prakiraan Cuaca Jalur Penyebrangan <small>Diperbarui : {{ batch_time }}</small></span>
+	<span id="page_title">Prakiraan Cuaca Jalur Penyebrangan <small>Diperbarui : {{ batch_time|default:"" }}</small></span>
 	{% for record in maritim_cuaca_penyebrangan_info %}
 	<div id="record-penyebrangan-{{ forloop.counter }}" class="carousel slide">
 		<div class="carousel-inner">
@@ -16,8 +16,8 @@
 					<tr class="info">
 						<td colspan="4">
 							<span class="pull-left">
-								<h2>Cuaca Perairan {{ value.area_name_id }}</h2>
-								<h2 class="pull-left">{{ value.timestamp_1 }}</h2>
+								<h2 class="pull-left">Jalur {{ value.area_habor_from }} - {{ value.area_habor_to }}</h2><br>
+								<h2 class="pull-left">Berlaku {{ value.validfrom }} - {{ value.validto }}</h2>
 							</span>
 						</td>
 					</tr>
@@ -58,7 +58,7 @@
 					<tr>
 						<td>
 							{% if value.wave_min and value.wave_max %}
-								<h2>{{ value.wave_min }} - {{ value.wave_max }} Meter <strong>({{ value.wave_min_description|upper }})</strong></h2>
+								<h2>Tinggi Gelombang {{ value.wave_min }} - {{ value.wave_max }} Meter</h2>
 							{% else %}
 								&#45;
 							{% endif %}

@@ -255,7 +255,7 @@ def sqlite_insert_command(table):
     elif table == 'maritim_cuaca_penyebrangan':
         insert_command = (
             "INSERT INTO " + table +
-            "(batch_time, domain, station_id, shortname, "
+            "(batch_time, domain, id_asdp, id_xml, id_area, station_id, shortname, "
             "timestamp, phone_number, phone_id, email, "
             "address, area_id, area_name_id, area_name_en, "
             "area_description, area_domain, area_habor_from, "
@@ -272,8 +272,8 @@ def sqlite_insert_command(table):
             "ws_min, ws_max_id, ws_max_description, ws_max_unit, "
             "ws_max, wave_min_id, wave_min_description, wave_min_unit, "
             "wave_min, wave_max_id, wave_max_description, wave_max_unit, "
-            "wave_max) "
-            "VALUES (:batch_time, :domain, :station_id, :shortname, "
+            "wave_max, pdf, arah_angin_dari, arah_angin_sampai, created_by, modified_by, created_date, modified_date) "
+            "VALUES (:batch_time, :domain, :id_asdp, :id_xml, :id_area, :station_id, :shortname, "
             ":timestamp, :phone_number, :phone_id, :email, "
             ":address, :area_id, :area_name_id, :area_name_en, "
             ":area_description, :area_domain, :area_habor_from, "
@@ -290,7 +290,7 @@ def sqlite_insert_command(table):
             ":ws_min, :ws_max_id, :ws_max_description, :ws_max_unit, "
             ":ws_max, :wave_min_id, :wave_min_description, :wave_min_unit, "
             ":wave_min, :wave_max_id, :wave_max_description, :wave_max_unit, "
-            ":wave_max)"
+            ":wave_max, :pdf, :arah_angin_dari, :arah_angin_sampai, :created_by, :modified_by, :created_date, :modified_date)"
         )
     elif table == 'maritim_wisata_bahari':
         insert_command = (

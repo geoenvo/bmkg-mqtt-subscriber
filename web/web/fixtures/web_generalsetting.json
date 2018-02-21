@@ -9,7 +9,7 @@
     "refresh": 300,
     "user": "bmkg_mqtt",
     "password": "bmkgmqttpassword",
-    "client_id": "bmkg_mqtt",
+    "client_id": "bmkg_mqtt_",
     "client_id_sub": "bmkg_mqtt_subscriber_"
   }
 }

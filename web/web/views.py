@@ -357,7 +357,8 @@ def maritim_cuaca_pelabuhan_info(request):
     query = (
         "SELECT station_id, shortname, timestamp, port_id, port_name, "
         "weather_icon, wd_from_icon_id, wd_to_icon_id, "
-        "ws_min, ws_max, wave_min, wave_max, pasang_min_description, batch_time "
+        "ws_min, ws_max, wave_min, wave_max, pasang_min_description, batch_time, "
+        "validfrom, validto "
         "FROM maritim_cuaca_pelabuhan WHERE batch_time = "
         "(SELECT MAX(batch_time) FROM maritim_cuaca_pelabuhan) "
         "ORDER BY batch_time DESC, shortname "
@@ -366,6 +367,7 @@ def maritim_cuaca_pelabuhan_info(request):
     stasion = {}
     last_station_id = None
     cur_stasion_id = None
+    batch_time = None
     # Append Record
     for value in cursor:
         cur_stasion_id = value[0]
@@ -378,6 +380,16 @@ def maritim_cuaca_pelabuhan_info(request):
             batch_time = get_timestampfull(batch_time)
         else:
             batch_time = None
+        if value[14]:
+            validfrom = datetime.strptime(value[14], '%Y-%m-%d %H:%M:%S')
+            validfrom = get_timestampfull(validfrom)
+        else:
+            validfrom = None
+        if value[15]:
+            validto = datetime.strptime(value[15], '%Y-%m-%d %H:%M:%S')
+            validto = get_timestampfull(validto)
+        else:
+            validto = None
         try:
             weather_icon = value[5].lower() + '-am.png'
         except:
@@ -396,8 +408,10 @@ def maritim_cuaca_pelabuhan_info(request):
             'wave_min': value[10],
             'wave_max': value[11],
             'pasang_min_description': value[12],
-            'batch_time': value[13],
+            'batch_time': batch_time,
             'weather_icon': weather_icon,
+            'validfrom': validfrom,
+            'validto': validto,
         }
         stasion.update({value[3]: record})
         last_station_id = value[0]
@@ -493,7 +507,8 @@ def maritim_cuaca_pelayanan_info(request):
     query = (
         "SELECT station_id, shortname, timestamp, area_id, area_name, "
         "weather_icon_id, wd_from_icon_id, wd_to_icon_id, "
-        "ws_min, ws_max, wave_min, wave_max, status_warning, hari, batch_time, peringatan_dini "
+        "ws_min, ws_max, wave_min, wave_max, status_warning, hari, batch_time, peringatan_dini, "
+        "validfrom, validto "
         "FROM maritim_cuaca_pelayanan WHERE batch_time = "
         "(SELECT MAX(batch_time) FROM maritim_cuaca_pelayanan) "
         "ORDER BY batch_time DESC, shortname "
@@ -503,6 +518,7 @@ def maritim_cuaca_pelayanan_info(request):
     category = {}
     last_station_id = None
     cur_stasion_id = None
+    batch_time = None
     # Append Record
     for value in cursor:
         cur_stasion_id = value[0]
@@ -518,6 +534,14 @@ def maritim_cuaca_pelayanan_info(request):
             batch_time = get_timestampfull(batch_time)
         else:
             batch_time = None
+        if value[16]:
+            validfrom = datetime.strptime(value[16], '%Y-%m-%d %H:%M:%S')
+            validfrom = get_timestampfull(validfrom)
+        else:
+            validfrom = None
+        if value[17]:
+            validto = datetime.strptime(value[17], '%Y-%m-%d %H:%M:%S')
+            validto = get_timestampfull(validto)
         try:
             weather_icon = value[5].lower() + '-am.png'
         except:
@@ -543,6 +567,8 @@ def maritim_cuaca_pelayanan_info(request):
             'batch_time': batch_time,
             'weather_icon': weather_icon,
             'peringatan_dini':  strip_tags(value[15]),
+            'validfrom': validfrom,
+            'validto': validto,
         }
         if value[13] == "hari_ini":
             category = {}
@@ -648,7 +674,8 @@ def maritim_cuaca_penyebrangan_info(request):
     query = (
         "SELECT station_id, shortname, timestamp, area_id, area_name_id, "
         "weather_icon, wd_from_icon_id, wd_to_icon_id, "
-        "ws_min, ws_max, wave_min, wave_max, wave_min_description, batch_time "
+        "ws_min, ws_max, wave_min, wave_max, wave_min_description, batch_time, "
+        "area_habor_from, area_habor_to, validfrom, validto "
         "FROM maritim_cuaca_penyebrangan WHERE batch_time = "
         "(SELECT MAX(batch_time) FROM maritim_cuaca_penyebrangan) "
         "ORDER BY batch_time DESC, shortname "
@@ -657,6 +684,7 @@ def maritim_cuaca_penyebrangan_info(request):
     stasion = {}
     last_station_id = None
     cur_stasion_id = None
+    batch_time = None
     # Append Record
     for value in cursor:
         cur_stasion_id = value[0]
@@ -669,6 +697,14 @@ def maritim_cuaca_penyebrangan_info(request):
             batch_time = get_timestampfull(batch_time)
         else:
             batch_time = None
+        if value[16]:
+            validfrom = datetime.strptime(value[16], '%Y-%m-%d %H:%M:%S')
+            validfrom = get_timestampfull(validfrom)
+        else:
+            validfrom = None
+        if value[17]:
+            validto = datetime.strptime(value[17], '%Y-%m-%d %H:%M:%S')
+            validto = get_timestampfull(validto)
         try:
             weather_icon = value[5].lower() + '-am.png'
         except:
@@ -689,6 +725,10 @@ def maritim_cuaca_penyebrangan_info(request):
             'wave_min_description': value[12],
             'batch_time': batch_time,
             'weather_icon': weather_icon,
+            'area_habor_from': value[14],
+            'area_habor_to': value[15],
+            'validfrom': validfrom,
+            'validto': validto,
         }
         stasion.update({value[3]: record})
         last_station_id = value[0]
@@ -786,6 +826,7 @@ def maritim_wisata_bahari_info(request):
     stasion = {}
     last_station_id = None
     cur_stasion_id = None
+    batch_time = None
     # Append Record
     for value in cursor:
         cur_stasion_id = value[0]
