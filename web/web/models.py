@@ -51,10 +51,30 @@ class GeneralSetting(models.Model):
         blank=True,
         null=True
     )
+    show_bps_id_kab_multiple = models.CharField(
+        max_length=255,
+        verbose_name="Filter Multiple BPS ID (Kabupaten, separate BPS IDs with comma)",
+        blank=True
+    )
+    show_bps_id_kec_multiple = models.CharField(
+        max_length=255,
+        verbose_name="Filter Multiple BPS ID (Kecamatan, separate BPS IDs with comma)",
+        blank=True
+    )
+    show_bps_id_des_multiple = models.CharField(
+        max_length=255,
+        verbose_name="Filter Multiple BPS ID (Desa, separate BPS IDs with comma)",
+        blank=True
+    )
     show_area_id = models.IntegerField(
         verbose_name="Filter Area ID",
         blank=True,
         null=True
+    )
+    show_area_id_multiple = models.CharField(
+        max_length=255,
+        verbose_name="Filter Multiple Area ID (separate Area IDs with comma)",
+        blank=True
     )
 
 

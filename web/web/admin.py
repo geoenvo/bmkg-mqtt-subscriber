@@ -1,8 +1,10 @@
 from django.contrib import admin
 from .models import GeneralSetting, TopicSetting
+from .forms import GeneralSettingAdminForm
 
 
 class GeneralSettingAdmin(admin.ModelAdmin):
+    form = GeneralSettingAdminForm
     list_display = [
         'address',
         'keepalive',
