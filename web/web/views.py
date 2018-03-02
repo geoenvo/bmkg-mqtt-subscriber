@@ -22,6 +22,8 @@ from templatetags.helper import (
         get_timestampfull
     )
 
+from .models import GeneralSetting
+
 
 def gempa_dirasakan(request):
     """
@@ -979,6 +981,17 @@ def digital_forecast_info(request):
     SQLITE_DB = settings.DATABASES['bmkg_mqtt']['NAME']
     connection = sqlite3.connect(SQLITE_DB)
     cursor = connection.cursor()
+    try:
+        SHOW_AREA_ID_MULTIPLE = GeneralSetting.objects.latest('pk').show_area_id_multiple
+    except:
+        SHOW_AREA_ID_MULTIPLE = ""
+    query = (
+        "SELECT area_id, area_domain, area_name_en, timestamp, "
+        "weather_00, weather_06, weather_12, weather_18, "
+        "weather_24, weather_30, weather_36, weather_42, batch_time "
+        "FROM digital_forecast WHERE batch_time = (SELECT MAX(batch_time) FROM digital_forecast) "
+        "ORDER BY batch_time DESC "
+    )
     if settings.SHOW_AREA_ID:
         area_id = settings.SHOW_AREA_ID
         query = (
@@ -989,13 +1002,16 @@ def digital_forecast_info(request):
             "batch_time = (SELECT MAX(batch_time) FROM digital_forecast) "
             "ORDER BY batch_time DESC" % str(area_id)
         )
-    else:
+    if SHOW_AREA_ID_MULTIPLE and SHOW_AREA_ID_MULTIPLE != '[]':
+        area_ids = eval(SHOW_AREA_ID_MULTIPLE)
+        area_ids_str = "(" + ",".join(str(id) for id in area_ids) + ")"
         query = (
             "SELECT area_id, area_domain, area_name_en, timestamp, "
             "weather_00, weather_06, weather_12, weather_18, "
             "weather_24, weather_30, weather_36, weather_42, batch_time "
-            "FROM digital_forecast WHERE batch_time = (SELECT MAX(batch_time) FROM digital_forecast) "
-            "ORDER BY batch_time DESC "
+            "FROM digital_forecast WHERE area_id IN %s AND "
+            "batch_time = (SELECT MAX(batch_time) FROM digital_forecast) "
+            "ORDER BY batch_time DESC" % str(area_ids_str)
         )
     cursor.execute(query)
 
@@ -1046,21 +1062,23 @@ def digital_forecast_info2(request):
     SQLITE_DB = settings.DATABASES['bmkg_mqtt']['NAME']
     connection = sqlite3.connect(SQLITE_DB)
     cursor = connection.cursor()
+    try:
+        SHOW_AREA_ID_MULTIPLE = GeneralSetting.objects.latest('pk').show_area_id_multiple
+    except:
+        SHOW_AREA_ID_MULTIPLE = ""
+    query = (
+        "SELECT area_id, area_domain, area_name_en, timestamp, "
+        "weather_00, weather_06, weather_12, weather_18, "
+        "t_00_c, t_06_c, t_12_c, t_18_c, "
+        "hu_00, hu_06, hu_12, hu_18, "
+        "ws_00_kph, ws_06_kph, ws_12_kph, ws_18_kph, batch_time, "
+        "humin_1, humax_1, tmin_1_c, tmax_1_c, "
+        "wd_00_card, wd_06_card, wd_12_card, wd_18_card "
+        "FROM digital_forecast WHERE batch_time = (SELECT MAX(batch_time) FROM digital_forecast) "
+        "ORDER BY batch_time DESC "
+    )
     if settings.SHOW_AREA_ID:
         area_id = settings.SHOW_AREA_ID
-        query = (
-            "SELECT area_id, area_domain, area_name_en, timestamp, "
-            "weather_00, weather_06, weather_12, weather_18, "
-            "t_00_c, t_06_c, t_12_c, t_18_c, "
-            "hu_00, hu_06, hu_12, hu_18, "
-            "ws_00_kph, ws_06_kph, ws_12_kph, ws_18_kph, batch_time"
-            "humin_1, humax_1, tmin_1_c, tmax_1_c, "
-            "wd_00_card, wd_06_card, wd_12_card, wd_18_card "
-            "FROM digital_forecast WHERE area_id = '%s' AND "
-            "batch_time = (SELECT MAX(batch_time) FROM digital_forecast) "
-            "ORDER BY batch_time DESC" % str(area_id)
-        )
-    else:
         query = (
             "SELECT area_id, area_domain, area_name_en, timestamp, "
             "weather_00, weather_06, weather_12, weather_18, "
@@ -1069,9 +1087,26 @@ def digital_forecast_info2(request):
             "ws_00_kph, ws_06_kph, ws_12_kph, ws_18_kph, batch_time, "
             "humin_1, humax_1, tmin_1_c, tmax_1_c, "
             "wd_00_card, wd_06_card, wd_12_card, wd_18_card "
-            "FROM digital_forecast WHERE batch_time = (SELECT MAX(batch_time) FROM digital_forecast) "
-            "ORDER BY batch_time DESC "
+            "FROM digital_forecast WHERE area_id = '%s' AND "
+            "batch_time = (SELECT MAX(batch_time) FROM digital_forecast) "
+            "ORDER BY batch_time DESC" % str(area_id)
         )
+    if SHOW_AREA_ID_MULTIPLE and SHOW_AREA_ID_MULTIPLE != '[]':
+        area_ids = eval(SHOW_AREA_ID_MULTIPLE)
+        area_ids_str = "(" + ",".join(str(id) for id in area_ids) + ")"
+        query = (
+            "SELECT area_id, area_domain, area_name_en, timestamp, "
+            "weather_00, weather_06, weather_12, weather_18, "
+            "t_00_c, t_06_c, t_12_c, t_18_c, "
+            "hu_00, hu_06, hu_12, hu_18, "
+            "ws_00_kph, ws_06_kph, ws_12_kph, ws_18_kph, batch_time, "
+            "humin_1, humax_1, tmin_1_c, tmax_1_c, "
+            "wd_00_card, wd_06_card, wd_12_card, wd_18_card "
+            "FROM digital_forecast WHERE area_id IN %s AND "
+            "batch_time = (SELECT MAX(batch_time) FROM digital_forecast) "
+            "ORDER BY batch_time DESC" % str(area_ids_str)
+        )
+        print query
     cursor.execute(query)
 
     # Append Record
@@ -1270,6 +1305,18 @@ def iklim_kabupaten_csv_info(request):
     SQLITE_DB = settings.DATABASES['bmkg_mqtt']['NAME']
     connection = sqlite3.connect(SQLITE_DB)
     cursor = connection.cursor()
+    try:
+        SHOW_BPS_ID_KAB_MULTIPLE = GeneralSetting.objects.latest('pk').show_bps_id_kab_multiple
+    except:
+        SHOW_BPS_ID_KAB_MULTIPLE = ""
+    query = (
+        "SELECT provinsi, id_kabupaten_kota, kabupaten_kota, month, year, batch_time, "
+        "pch_1_sbk, pch_1_sb, pch_1_sbb, pch_1_m, "
+        "pch_2_sbk, pch_2_sb, pch_2_sbb, pch_2_m, "
+        "pch_3_sbk, pch_3_sb, pch_3_sbb, pch_3_m "
+        "FROM iklim_kabupaten_csv WHERE batch_time = "
+        "(SELECT MAX(batch_time) FROM iklim_kabupaten_csv) ORDER BY batch_time DESC "
+    )
     if settings.SHOW_BPS_ID_KAB:
         id_kab = settings.SHOW_BPS_ID_KAB
         query = (
@@ -1281,14 +1328,17 @@ def iklim_kabupaten_csv_info(request):
             "AND batch_time = (SELECT MAX(batch_time) from iklim_kabupaten_csv) "
             "ORDER BY batch_time DESC" % str(id_kab)
         )
-    else:
+    if SHOW_BPS_ID_KAB_MULTIPLE and SHOW_BPS_ID_KAB_MULTIPLE != '[]':
+        kab_ids = eval(SHOW_BPS_ID_KAB_MULTIPLE)
+        kab_ids_str = "(" + ",".join(str(id) for id in kab_ids) + ")"
         query = (
             "SELECT provinsi, id_kabupaten_kota, kabupaten_kota, month, year, batch_time, "
             "pch_1_sbk, pch_1_sb, pch_1_sbb, pch_1_m, "
             "pch_2_sbk, pch_2_sb, pch_2_sbb, pch_2_m, "
             "pch_3_sbk, pch_3_sb, pch_3_sbb, pch_3_m "
-            "FROM iklim_kabupaten_csv WHERE batch_time = "
-            "(SELECT MAX(batch_time) FROM iklim_kabupaten_csv) ORDER BY batch_time DESC "
+            "FROM iklim_kabupaten_csv WHERE id_kabupaten_kota IN %s "
+            "AND batch_time = (SELECT MAX(batch_time) from iklim_kabupaten_csv) "
+            "ORDER BY batch_time DESC" % str(kab_ids_str)
         )
     cursor.execute(query)
 
@@ -1477,6 +1527,18 @@ def iklim_kecamatan_csv_info(request):
     SQLITE_DB = settings.DATABASES['bmkg_mqtt']['NAME']
     connection = sqlite3.connect(SQLITE_DB)
     cursor = connection.cursor()
+    try:
+        SHOW_BPS_ID_KEC_MULTIPLE = GeneralSetting.objects.latest('pk').show_bps_id_kec_multiple
+    except:
+        SHOW_BPS_ID_KEC_MULTIPLE = ""
+    query = (
+        "SELECT provinsi, id_kecamatan, kecamatan, month, year, batch_time, "
+        "pch_1_sbk, pch_1_sb, pch_1_sbb, pch_1_m, "
+        "pch_2_sbk, pch_2_sb, pch_2_sbb, pch_2_m, "
+        "pch_3_sbk, pch_3_sb, pch_3_sbb, pch_3_m "
+        "FROM iklim_kecamatan_csv WHERE batch_time = "
+        "(SELECT MAX(batch_time) FROM iklim_kecamatan_csv) ORDER BY batch_time DESC "
+    )
     if settings.SHOW_BPS_ID_KEC:
         id_kec = settings.SHOW_BPS_ID_KEC
         query = (
@@ -1488,14 +1550,17 @@ def iklim_kecamatan_csv_info(request):
             "AND batch_time = (SELECT MAX(batch_time) from iklim_kecamatan_csv) "
             "ORDER BY batch_time DESC" % str(id_kec)
         )
-    else:
+    if SHOW_BPS_ID_KEC_MULTIPLE and SHOW_BPS_ID_KEC_MULTIPLE != '[]':
+        kec_ids = eval(SHOW_BPS_ID_KEC_MULTIPLE)
+        kec_ids_str = "(" + ",".join(str(id) for id in kec_ids) + ")"
         query = (
             "SELECT provinsi, id_kecamatan, kecamatan, month, year, batch_time, "
             "pch_1_sbk, pch_1_sb, pch_1_sbb, pch_1_m, "
             "pch_2_sbk, pch_2_sb, pch_2_sbb, pch_2_m, "
             "pch_3_sbk, pch_3_sb, pch_3_sbb, pch_3_m "
-            "FROM iklim_kecamatan_csv WHERE batch_time = "
-            "(SELECT MAX(batch_time) FROM iklim_kecamatan_csv) ORDER BY batch_time DESC "
+            "FROM iklim_kecamatan_csv WHERE id_kecamatan IN %s "
+            "AND batch_time = (SELECT MAX(batch_time) from iklim_kecamatan_csv) "
+            "ORDER BY batch_time DESC" % str(kec_ids_str)
         )
     cursor.execute(query)
 
@@ -1684,6 +1749,18 @@ def iklim_desa_csv_info(request):
     SQLITE_DB = settings.DATABASES['bmkg_mqtt']['NAME']
     connection = sqlite3.connect(SQLITE_DB)
     cursor = connection.cursor()
+    try:
+        SHOW_BPS_ID_DES_MULTIPLE = GeneralSetting.objects.latest('pk').show_bps_id_des_multiple
+    except:
+        SHOW_BPS_ID_DES_MULTIPLE = ""
+    query = (
+        "SELECT provinsi, id_desa, desa, month, year, batch_time, "
+        "pch_1_sbk, pch_1_sb, pch_1_sbb, pch_1_m, "
+        "pch_2_sbk, pch_2_sb, pch_2_sbb, pch_2_m, "
+        "pch_3_sbk, pch_3_sb, pch_3_sbb, pch_3_m "
+        "FROM iklim_desa_csv WHERE batch_time = "
+        "(SELECT MAX(batch_time) FROM iklim_desa_csv) ORDER BY batch_time DESC "
+    )
     if settings.SHOW_BPS_ID_DES:
         id_des = settings.SHOW_BPS_ID_DES
         query = (
@@ -1695,14 +1772,17 @@ def iklim_desa_csv_info(request):
             "AND batch_time = (SELECT MAX(batch_time) from iklim_desa_csv) "
             "ORDER BY batch_time DESC" % str(id_des)
         )
-    else:
+    if SHOW_BPS_ID_DES_MULTIPLE and SHOW_BPS_ID_DES_MULTIPLE != '[]':
+        des_ids = eval(SHOW_BPS_ID_DES_MULTIPLE)
+        des_ids_str = "(" + ",".join(str(id) for id in des_ids) + ")"
         query = (
             "SELECT provinsi, id_desa, desa, month, year, batch_time, "
             "pch_1_sbk, pch_1_sb, pch_1_sbb, pch_1_m, "
             "pch_2_sbk, pch_2_sb, pch_2_sbb, pch_2_m, "
             "pch_3_sbk, pch_3_sb, pch_3_sbb, pch_3_m "
-            "FROM iklim_desa_csv WHERE batch_time = "
-            "(SELECT MAX(batch_time) FROM iklim_desa_csv) ORDER BY batch_time DESC "
+            "FROM iklim_desa_csv WHERE id_desa IN %s "
+            "AND batch_time = (SELECT MAX(batch_time) from iklim_desa_csv) "
+            "ORDER BY batch_time DESC" % str(des_ids_str)
         )
     cursor.execute(query)
 

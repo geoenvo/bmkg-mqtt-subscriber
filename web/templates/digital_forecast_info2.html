@@ -8,7 +8,7 @@
 	<table  id="digital-forecast-info2-h0" class="table" >
 		{% for record in digital_forecast_info2 %}
 		<tbody>
-			<tr><td colspan="4"><h1 id="{{ record.area_id }}" class="pull-left"><a href="#">{{ record.area_name_en }}</a></h1></td></tr>
+			<tr><td colspan="4"><h1 id="{{ record.area_id }}" title="{{ record.area_name_en }} (ID {{ record.area_id }})" class="pull-left">{{ record.area_name_en }}</h1></td></tr>
 			<tr class="info"><td colspan="4"><h2>Cuaca Darat {{ record.timestamp_1 }} ({{ record.time_period|title }})</h2></td></tr>
 			<tr>
 				<td rowspan="2">

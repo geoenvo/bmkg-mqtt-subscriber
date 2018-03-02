@@ -23,8 +23,13 @@ class CommaSeparatedCharField(forms.Field):
 
     def to_python(self, value):
         if value in validators.EMPTY_VALUES:
-            return []
-
+            return ''
+            #return []
+        # prevent appending saved value continuously
+        value = value.replace("[", "")
+        value = value.replace("]", "")
+        value = value.replace("'", "")
+        value = value.replace("u", "")
         value = [item.strip() for item in value.split(',') if item.strip()]
         if self.dedup:
             value = list(set(value))
@@ -72,22 +77,22 @@ class CommaSeparatedIntegerField(forms.Field):
 
 
 class GeneralSettingAdminForm(forms.ModelForm):
-    show_bps_id_kab_multiple = CommaSeparatedIntegerField(
+    show_bps_id_kab_multiple = CommaSeparatedCharField(
         max_length=255,
         required=False,
-        label="Filter Multiple BPS ID (Kabupaten, separate BPS IDs with comma)"
+        label="Filter Multiple Kabupaten IDs (separate IDs with comma)"
     )
-    show_bps_id_kec_multiple = CommaSeparatedIntegerField(
+    show_bps_id_kec_multiple = CommaSeparatedCharField(
         max_length=255,
         required=False,
-        label="Filter Multiple BPS ID (Kecamatan, separate BPS IDs with comma)"
+        label="Filter Multiple Kecamatan IDs (separate IDs with comma)"
     )
-    show_bps_id_des_multiple = CommaSeparatedIntegerField(
+    show_bps_id_des_multiple = CommaSeparatedCharField(
         max_length=255,
         required=False,
-        label="Filter Multiple BPS ID (Desa, separate BPS IDs with comma)"
+        label="Filter Multiple Desa IDs (separate IDs with comma)"
     )
-    show_area_id_multiple = CommaSeparatedIntegerField(
+    show_area_id_multiple = CommaSeparatedCharField(
         max_length=255,
         required=False,
         label="Filter Multiple Area ID (separate Area IDs with comma)"

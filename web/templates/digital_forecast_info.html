@@ -15,7 +15,7 @@
 			<table  id="digital-forecast-info-h0" class="table" >
 				{% for record in digital_forecast_info %}
 				<thead>
-					<tr><th colspan="4"><h1 id="{{ record.area_id }}" class="pull-left"><a href="#">{{ record.area_name_en }}</a></h1></th></tr>
+					<tr><th colspan="4"><h1 id="{{ record.area_id }}" title="{{ record.area_name_en }} (ID {{ record.area_id }})" class="pull-left">{{ record.area_name_en }}</h1></th></tr>
 					<tr><th colspan="4"><h2>Cuaca {{ record.timestamp_1 }}</h2></th></tr>
 					<tr class="info">
 						<th><h2><strong>Pagi</strong></h2></th>

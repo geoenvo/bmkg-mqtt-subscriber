@@ -278,26 +278,26 @@ area_id_list = {
 }
 
 kode_list = [
-    ["15", "Komplek Bandara Pattimura, Jl. Dr. Leimena, Ambon", "0911-311751", "0911-311751", "-", "Ambon"],
-    ["34", "Jl. Marsma R. Iswahyudi No. 3 Balikpapan", "0542-762360", "0542-764054", "stamet.sepinggan@bmkg.go.id", "Balikpapan"],
-    ["5", "Jl. Hang Nadim, Batu Besar - Batam, Riau 29431", "0778-761507 , 0788-761415", "0788-761401", "stamet.hangnadim@bmkg.go.id", "Batam"],
-    ["1", "Jl. Raya Pelabuhan III, Gabion Ringkai Belawan, Medan - Sumatera Utara", "061-6940340", "061-694851", "stamar.belawan@bmkg.go.id", "Belawan"],
-    ["13", "Jl. Moh. Yamin, Biak - Papua 98111", "0981-25373", "0981-25373", "fct_biak@yahoo.co.id | forecaster.biak@gmail.com", "Biak"],
-    ["11", "Jln. Candi No. 53, Bitung - Sulawesi Utara, 95513", "0438-21710 , 0438 30989", "0438-30989", "stamar.bitung@bmkg.go.id", "Bitung"],
-    ["8", "Jl. Gatot Subroto No. 20, Cilacap - Jawa Tengah", "0282-534103", "0282-535822", "met_clp@yahoo.com", "Cilacap"],
-    ["31", "Jl. Raya Tuban, Badung, Bali.", "0361-751122 & 031-753105", "0361-757975", "cuaca.bbmkg3@gmail.com", "Denpasar"],
-    ["14", "Jl. Jendral Sudirman No. 158, Kendari - Sulawesi Tenggara", "0401-3128528 , 0401- 3131479", "0401-3128528", "stamarkendari@gmail.com", "Kendari"],
-    ["10", "Komplek Bandar Udara El Tari Kupang Jl. Adi Sucipto, Kupang - Nusa Tenggara Timur 85361", "0380-881613", "0380-881613", "stamet.eltari@bmkg.go.id | met_kupang@yahoo.com", "Kupang"],
-    ["3", "Jl. Yos Sudarso no. 64, Way Lunik Panjang, Bandar Lampung - Lampung 35243", "0721-343154", "0721-343154", "stamarpjg@gmail.com", "Lampung"],
-    ["12", "Jl. Sabutung I No. 30, Paotere - Makassar, Sulawesi Selatan 90163", "0411-3619242", "0411-3628235", "stamar.paotere@bmkg.go.id | meteo_marptr@yahoo.co.id", "Makassar"],
-    ["43", "Jl. PGT Mopah, Bandara Mopah Rimbajaya, Kelurahan Rimba Jaya, Kab. Merauke, Papua 99651", "0971-321774", "0971-322895", "-", "Merauke"],
-    ["4", "Jl. Pelabuhan Laut, Pontianak 78112", "0561-769906", "0561-769906", "maritim_pontianak@yahoo.com", "Pontianak"],
-    ["7", "Komplek Pelabuhan Tanjung Mas, Jl. Yos Sudarso no.58", "024-3559194", "024-3549050", "forecaster_maritim@yahoo.co.id, stamar.semarang@bmkg.go.id", "Semarang"],
-    ["44", "Bandar Udara Domine Eduard Osok(DEO), Sorong - Papua Barat", "(0951)-327457 / 08114800075", "(0951)-327457", "stametsorong@gmail.com", "Sorong"],
-    ["9", "Jl.Kalimas Baru No.97B, Surabaya - Jawa Timur 60165", "031-3291439", "031-3287123", "meteomaritimsby@yahoo.co.id", "Tanjung Perak"],
-    ["6", "Komplek Pelabuhan Tanjung Priok Jl. Padamarang No. 4A, Jakarta 14310", "021-43912041", "Fax. 021-4351366", "stamar.tanjungpriok@bmkg.go.id", "Tanjung Priok"],
-    ["2", "Jl. Sutan Syahrir, Komplek Pelindo no. 26, Rawang - Padang Selatan", "0751-62331", "0751-62331", "ops_stamartlb@yahoo.co.id", "Teluk Bayur"],
-    ["17", "Bandara Babullah Ternate, Jl. Batu Agus KP. 28, Ternate, Maluku Utara, 97728", "0921-3127902 / 0921-331292", "0921-3110430", "stamet.babullah@bmkg.go.id", "Ternate"],
+    ["15", "Komplek Bandara Pattimura, Jl. Dr. Leimena, Ambon", "0911-311751", "0911-311751", "-", "Stasiun Meteorologi Pattimura - Ambon"],
+    ["34", "Jl. Marsma R. Iswahyudi No. 3 Balikpapan", "0542-762360", "0542-764054", "stamet.sepinggan@bmkg.go.id", "Stasiun Meteorologi Sepinggan - Balikpapan"],
+    ["5", "Jl. Hang Nadim, Batu Besar - Batam, Riau 29431", "0778-761507 , 0788-761415", "0788-761401", "stamet.hangnadim@bmkg.go.id", "Stasiun Meteorologi Hang Nadim - Batam"],
+    ["1", "Jl. Raya Pelabuhan III, Gabion Ringkai Belawan, Medan - Sumatera Utara", "061-6940340", "061-694851", "stamar.belawan@bmkg.go.id", "Stasiun Meteorologi Maritim Belawan"],
+    ["13", "Jl. Moh. Yamin, Biak - Papua 98111", "0981-25373", "0981-25373", "fct_biak@yahoo.co.id | forecaster.biak@gmail.com", "Stasiun Meteorologi Frans Kaisepo - Biak"],
+    ["11", "Jln. Candi No. 53, Bitung - Sulawesi Utara, 95513", "0438-21710 , 0438 30989", "0438-30989", "stamar.bitung@bmkg.go.id", "Stasiun Meteorologi Maritim Bitung"],
+    ["8", "Jl. Gatot Subroto No. 20, Cilacap - Jawa Tengah", "0282-534103", "0282-535822", "met_clp@yahoo.com", "Stasiun Meteorologi Cilacap"],
+    ["31", "Jl. Raya Tuban, Badung, Bali.", "0361-751122 & 031-753105", "0361-757975", "cuaca.bbmkg3@gmail.com", "Balai Besar Wilayah III - Denpasar"],
+    ["14", "Jl. Jendral Sudirman No. 158, Kendari - Sulawesi Tenggara", "0401-3128528 , 0401- 3131479", "0401-3128528", "stamarkendari@gmail.com", "Stasiun Meteorologi Maritim Kendari"],
+    ["10", "Komplek Bandar Udara El Tari Kupang Jl. Adi Sucipto, Kupang - Nusa Tenggara Timur 85361", "0380-881613", "0380-881613", "stamet.eltari@bmkg.go.id | met_kupang@yahoo.com", "Stasiun Meteorologi El-Tari - Kupang"],
+    ["3", "Jl. Yos Sudarso no. 64, Way Lunik Panjang, Bandar Lampung - Lampung 35243", "0721-343154", "0721-343154", "stamarpjg@gmail.com", "Stasiun Meteorologi Maritim Lampung"],
+    ["12", "Jl. Sabutung I No. 30, Paotere - Makassar, Sulawesi Selatan 90163", "0411-3619242", "0411-3628235", "stamar.paotere@bmkg.go.id | meteo_marptr@yahoo.co.id", "Stasiun Meteorologi Maritim Paotere - Makassar"],
+    ["43", "Jl. PGT Mopah, Bandara Mopah Rimbajaya, Kelurahan Rimba Jaya, Kab. Merauke, Papua 99651", "0971-321774", "0971-322895", "-", "Stasiun Meteorologi Mopah - Merauke"],
+    ["4", "Jl. Pelabuhan Laut, Pontianak 78112", "0561-769906", "0561-769906", "maritim_pontianak@yahoo.com", "Stasiun Meteorologi Maritim Pontianak"],
+    ["7", "Komplek Pelabuhan Tanjung Mas, Jl. Yos Sudarso no.58", "024-3559194", "024-3549050", "forecaster_maritim@yahoo.co.id, stamar.semarang@bmkg.go.id", "Stasiun Meteorologi Maritim Tanjung Mas"],
+    ["44", "Bandar Udara Domine Eduard Osok(DEO), Sorong - Papua Barat", "(0951)-327457 / 08114800075", "(0951)-327457", "stametsorong@gmail.com", "Stasiun Meteorologi Kelas 1 Seigun - Sorong"],
+    ["9", "Jl.Kalimas Baru No.97B, Surabaya - Jawa Timur 60165", "031-3291439", "031-3287123", "meteomaritimsby@yahoo.co.id", "Stasiun Meteorologi Maritim Tanjung Perak"],
+    ["6", "Komplek Pelabuhan Tanjung Priok Jl. Padamarang No. 4A, Jakarta 14310", "021-43912041", "Fax. 021-4351366", "stamar.tanjungpriok@bmkg.go.id", "Stasiun Meteorologi Maritim Tanjung Priok"],
+    ["2", "Jl. Sutan Syahrir, Komplek Pelindo no. 26, Rawang - Padang Selatan", "0751-62331", "0751-62331", "ops_stamartlb@yahoo.co.id", "Stasiun Meteorologi Maritim Teluk Bayur"],
+    ["17", "Bandara Babullah Ternate, Jl. Batu Agus KP. 28, Ternate, Maluku Utara, 97728", "0921-3127902 / 0921-331292", "0921-3110430", "stamet.babullah@bmkg.go.id", "Stasiun Meteorologi Babullah - Ternate"],
 ]
 
 penyebrangan_id_list = {
@@ -565,6 +565,21 @@ maritim_wisata_bahari_topic_query = TopicSetting.objects.filter(
 ).values_list('topic', flat=True)
 maritim_wisata_bahari_topic_list = [value for value in maritim_wisata_bahari_topic_query]
 
+# Listing Topic for CSV
+iklim_kabupaten_csv_query = TopicSetting.objects.filter(
+    table='iklim_kabupaten_csv', subscribe=True
+).values_list('topic', flat=True)
+iklim_kabupaten_csv_list = [value for value in iklim_kabupaten_csv_query]
+
+iklim_kecamatan_csv_query = TopicSetting.objects.filter(
+    table='iklim_kecamatan_csv', subscribe=True
+).values_list('topic', flat=True)
+iklim_kecamatan_csv_list = [value for value in iklim_kecamatan_csv_query]
+
+iklim_desa_csv_query = TopicSetting.objects.filter(
+    table='iklim_desa_csv', subscribe=True
+).values_list('topic', flat=True)
+iklim_desa_csv_list = [value for value in iklim_desa_csv_query]
 
 TOPIC = {
     'digital_forecast': digital_forecast_topic_list,
@@ -578,9 +593,9 @@ TOPIC = {
     'gempa_terkini': TopicSetting.objects.get(table='gempa_terkini', subscribe=True).topic,
     'gempa_terkini_csv': TopicSetting.objects.get(table='gempa_terkini_csv', subscribe=True).topic,
     'gempa_dirasakan': TopicSetting.objects.get(table='gempa_dirasakan', subscribe=True).topic,
-    'iklim_kabupaten_csv': TopicSetting.objects.get(table='iklim_kabupaten_csv', subscribe=True).topic,
-    'iklim_kecamatan_csv': TopicSetting.objects.get(table='iklim_kecamatan_csv', subscribe=True).topic,
-    'iklim_desa_csv': TopicSetting.objects.get(table='iklim_desa_csv', subscribe=True).topic,
+    'iklim_kabupaten_csv': iklim_kabupaten_csv_list,
+    'iklim_kecamatan_csv': iklim_kecamatan_csv_list,
+    'iklim_desa_csv': iklim_desa_csv_list,
 }
 
 # Setup clear message retain
